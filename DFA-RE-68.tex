@@ -1,0 +1,77 @@
+\documentclass{article}
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\usepackage[latin1]{}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{ssamal@cse.unl.edu}
+\lhead{CSCE828-Project1-DFA-RE-68}
+\lfoot{\copyright Suraj Samal}
+\rfoot{\thepage}
+\begin{document}
+\title{CSCE828-Project1-ssamal@cse.unl.edu}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.8cm,semithick]
+   \tikzstyle{every state}=[fill=red,draw=blue,text=white]
+   \node[state,initial,accepting]   (Ss5s6)        {$Ss5s6$};
+   \node[state]   (r)  [below of=Ss5s6]  {$r$};
+   \node[state]   (s11)  [below of=r]  {$s11$};
+   \node[state]   (s6)  [below of=s11]  {$s6$};
+   \node[state]   (f5f6)  [below of=s6]  {$f5f6$};
+   \node[state]   (s5s6)  [below of=f5f6]  {$s5s6$};
+   \node[state]   (s10)  [below of=s5s6]  {$s10$};
+   \node[state]   (s10s11)  [below of=s10]  {$s10s11$};
+   \node[state]   (s5)  [below of=s10s11]  {$s5$};
+   \node[state]   (f5)  [below of=s5]  {$f5$};
+   \node[state]   (f6)  [below of=f5]  {$f6$};
+   \node[state]   (f5-f5f6-s10-s10s11-s11)  [below of=f6]  {$f5-f5f6-s10-s10s11-s11$};
+   \node[state]   (f5f6-f6-s10-s10s11-s11)  [below of=f5-f5f6-s10-s10s11-s11]  {$f5f6-f6-s10-s10s11-s11$};
+   \node[state,accepting]   (f11)  [below of=f5f6-f6-s10-s10s11-s11]  {$f11$};
+   \node[state,accepting]   (Ff10f11-f10f11-f11-s5-s5s6-s6)  [below of=f11]  {$Ff10f11-f10f11-f11-s5-s5s6-s6$};
+   \node[state,accepting]   (f10f11)  [below of=Ff10f11-f10f11-f11-s5-s5s6-s6]  {$f10f11$};
+   \node[state,accepting]   (Ff10f11-f10-f10f11-s5-s5s6-s6)  [below of=f10f11]  {$Ff10f11-f10-f10f11-s5-s5s6-s6$};
+   \node[state,accepting]   (Ff10f11)  [below of=Ff10f11-f10-f10f11-s5-s5s6-s6]  {$Ff10f11$};
+   \node[state,accepting]   (f10)  [below of=Ff10f11]  {$f10$};
+
+   \path  
+     (r)  edge  [loop above]  node {a}  (r)
+     (r)  edge  [loop above]  node {b}  (r)
+     (f11)  edge  [bend left]    node {a}  (f5-f5f6-s10-s10s11-s11)
+     (f11)  edge  [bend right]    node {b}  (f5f6-f6-s10-s10s11-s11)
+     (s11)  edge  [bend left]    node {a}  (r)
+     (s11)  edge  [bend right]    node {b}  (Ff10f11-f10f11-f11-s5-s5s6-s6)
+     (Ff10f11-f10f11-f11-s5-s5s6-s6)  edge  [bend left]    node {a}  (f5-f5f6-s10-s10s11-s11)
+     (Ff10f11-f10f11-f11-s5-s5s6-s6)  edge  [bend right]    node {b}  (f5f6-f6-s10-s10s11-s11)
+     (s6)  edge  [bend left]    node {a}  (r)
+     (s6)  edge  [bend right]    node {b}  (f5f6-f6-s10-s10s11-s11)
+     (s5s6)  edge  [bend left]    node {a}  (f5-f5f6-s10-s10s11-s11)
+     (s5s6)  edge  [bend right]    node {b}  (f5f6-f6-s10-s10s11-s11)
+     (f5f6)  edge  [bend left]    node {a}  (Ff10f11-f10-f10f11-s5-s5s6-s6)
+     (f5f6)  edge  [bend right]    node {b}  (Ff10f11-f10f11-f11-s5-s5s6-s6)
+     (f10f11)  edge  [bend left]    node {a}  (f5-f5f6-s10-s10s11-s11)
+     (f10f11)  edge  [bend right]    node {b}  (f5f6-f6-s10-s10s11-s11)
+     (Ff10f11-f10-f10f11-s5-s5s6-s6)  edge  [bend left]    node {a}  (f5-f5f6-s10-s10s11-s11)
+     (Ff10f11-f10-f10f11-s5-s5s6-s6)  edge  [bend right]    node {b}  (f5f6-f6-s10-s10s11-s11)
+     (s10)  edge  [bend left]    node {a}  (Ff10f11-f10-f10f11-s5-s5s6-s6)
+     (s10)  edge  [bend right]    node {b}  (r)
+     (s5)  edge  [bend left]    node {a}  (f5-f5f6-s10-s10s11-s11)
+     (s5)  edge  [bend right]    node {b}  (r)
+     (s10s11)  edge  [bend left]    node {a}  (Ff10f11-f10-f10f11-s5-s5s6-s6)
+     (s10s11)  edge  [bend right]    node {b}  (Ff10f11-f10f11-f11-s5-s5s6-s6)
+     (f6)  edge  [bend left]    node {a}  (Ff10f11-f10-f10f11-s5-s5s6-s6)
+     (f6)  edge  [bend right]    node {b}  (Ff10f11-f10f11-f11-s5-s5s6-s6)
+     (f5)  edge  [bend left]    node {a}  (Ff10f11-f10-f10f11-s5-s5s6-s6)
+     (f5)  edge  [bend right]    node {b}  (Ff10f11-f10f11-f11-s5-s5s6-s6)
+     (f5-f5f6-s10-s10s11-s11)  edge  [bend left]    node {a}  (Ff10f11-f10-f10f11-s5-s5s6-s6)
+     (f5-f5f6-s10-s10s11-s11)  edge  [bend right]    node {b}  (Ff10f11-f10f11-f11-s5-s5s6-s6)
+     (Ff10f11)  edge  [bend left]    node {a}  (r)
+     (Ff10f11)  edge  [bend right]    node {b}  (r)
+     (f5f6-f6-s10-s10s11-s11)  edge  [bend left]    node {a}  (Ff10f11-f10-f10f11-s5-s5s6-s6)
+     (f5f6-f6-s10-s10s11-s11)  edge  [bend right]    node {b}  (Ff10f11-f10f11-f11-s5-s5s6-s6)
+     (Ss5s6)  edge  [bend left]    node {a}  (f5-f5f6-s10-s10s11-s11)
+     (Ss5s6)  edge  [bend right]    node {b}  (f5f6-f6-s10-s10s11-s11)
+     (f10)  edge  [bend left]    node {a}  (f5-f5f6-s10-s10s11-s11)
+     (f10)  edge  [bend right]    node {b}  (f5f6-f6-s10-s10s11-s11);
+\end{tikzpicture}
+\end{document}

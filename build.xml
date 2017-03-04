@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Automata" default="dist" basedir=".">
+	 <!-- set global properties for this build -->
+	  <property name="src" location="src"/>
+	  <property name="build" location="build"/>
+	  <property name="tester" value="unl.cse.tests.RegxTester"/>
+	
+	<path id="project.class.path">  
+	    <pathelement location="."/>  
+	    <pathelement path="${java.class.path}/"/>  
+	</path> 
+	
+	<target name="init">
+	    <!-- Create the time stamp -->
+	    <tstamp/>
+	    <!-- Create the build directory structure used by compile -->
+	    <mkdir dir="${build}"/>
+	  </target>
+
+	  <target name="compile" depends="init"
+	        description="compile the source " >
+	    <!-- Compile the java code from ${src} into ${build} -->
+	    <javac includeantruntime="false" srcdir="${src}" destdir="${build}" classpathref="project.class.path"/>
+	  </target>
+	
+	  <target name="build" depends="init"
+		        description="compile the source " >
+		    <!-- Compile the java code from ${src} into ${build} -->
+		    <javac srcdir="${src}" destdir="${build}" classpathref="project.class.path"/>
+		  </target>
+	
+
+  	  <target name="dist" depends="compile"
+	        description="generate the distribution" >
+	    <!-- Put everything in ${build} into the MyProject-${DSTAMP}.jar file -->
+	<!--    <jar jarfile="automata-${DSTAMP}.jar" basedir="${build}"/> -->
+  		<jar destfile="automata-${DSTAMP}.jar" basedir="${build}">
+  	            <manifest>
+  	                <attribute name="Main-Class" value="unl.cse.tests.RegxRunner"/>
+  	            </manifest>
+  	    </jar> 
+  		<exec executable="/usr/bin/ln"> 
+  			<arg line="-s -f ./automata-${DSTAMP}.jar ./automata.jar "/>
+  		</exec>
+  		<exec executable="chmod"> 
+  			<arg line="+x ./automata-${DSTAMP}.jar"/>
+  		</exec>
+	 </target>
+	
+	<target name="test" depends="dist"
+		        description="test the distribution with samples" >
+		    <exec executable="/usr/bin/java"> 
+		  			<arg line="-cp ./automata.jar unl.cse.tests.RegxTester"/>
+		  	</exec>
+	</target>
+	
+	<target name="export" depends="dist"
+			        description="test the distribution with samples" >
+			    <exec executable="xelatex"> 
+			  			<arg line=" *.tex"/>
+			  	</exec>
+		</target>
+
+
+	  <target name="clean"
+	        description="Clean up" >
+	    <!-- Delete the ${build} and ${dist} directory trees -->
+	    <delete dir="${build}"/>
+	  	 <delete>
+	  	    <fileset dir="." includes="*.tex, *.pdf, *.aux, *.log, automata*.jar, automata"/>
+	  	  </delete>
+	  </target>
+</project>																																																																																																																																																																																																																																																																																																																																																																																														

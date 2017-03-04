@@ -1,0 +1,200 @@
+\documentclass{article}
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\usepackage[latin1]{}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{ssamal@cse.unl.edu}
+\lhead{CSCE828-Project1-DFA-RE-88}
+\lfoot{\copyright Suraj Samal}
+\rfoot{\thepage}
+\begin{document}
+\title{CSCE828-Project1-ssamal@cse.unl.edu}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.8cm,semithick]
+   \tikzstyle{every state}=[fill=red,draw=blue,text=white]
+   \node[state,initial]   (Ss3s4)        {$Ss3s4$};
+   \node[state]   (Ff3f4-f14-f3f4-f4-r-s14-s16-s3-s3s4-s4-s9-s9s14)  [below of=Ss3s4]  {$Ff3f4-f14-f3f4-f4-r-s14-s16-s3-s3s4-s4-s9-s9s14$};
+   \node[state]   (Ff3f4-f16-f3-f3f4-f9-s11-s14-s17-s3-s3s4-s4-s9-s9s14)  [below of=Ff3f4-f14-f3f4-f4-r-s14-s16-s3-s3s4-s4-s9-s9s14]  {$Ff3f4-f16-f3-f3f4-f9-s11-s14-s17-s3-s3s4-s4-s9-s9s14$};
+   \node[state]   (s21)  [below of=Ff3f4-f16-f3-f3f4-f9-s11-s14-s17-s3-s3s4-s4-s9-s9s14]  {$s21$};
+   \node[state]   (f3)  [below of=s21]  {$f3$};
+   \node[state]   (f11)  [below of=f3]  {$f11$};
+   \node[state]   (Ff3f4)  [below of=f11]  {$Ff3f4$};
+   \node[state]   (Ff3f4-f16-f3-f3f4-f9-r-s11-s14-s17-s3-s3s4-s4-s9-s9s14)  [below of=Ff3f4]  {$Ff3f4-f16-f3-f3f4-f9-r-s11-s14-s17-s3-s3s4-s4-s9-s9s14$};
+   \node[state]   (s17)  [below of=Ff3f4-f16-f3-f3f4-f9-r-s11-s14-s17-s3-s3s4-s4-s9-s9s14]  {$s17$};
+   \node[state]   (s16)  [below of=s17]  {$s16$};
+   \node[state]   (f9-s11)  [below of=s16]  {$f9-s11$};
+   \node[state]   (s9s14)  [below of=f9-s11]  {$s9s14$};
+   \node[state]   (s21s22)  [below of=s9s14]  {$s21s22$};
+   \node[state]   (r)  [below of=s21s22]  {$r$};
+   \node[state]   (f16-s17)  [below of=r]  {$f16-s17$};
+   \node[state]   (Ff3f4-f14-f3f4-f4-s14-s16-s3-s3s4-s4-s9-s9s14)  [below of=f16-s17]  {$Ff3f4-f14-f3f4-f4-s14-s16-s3-s3s4-s4-s9-s9s14$};
+   \node[state]   (Ff3f4-f11-f14-f3f4-f4-r-s12-s14-s16-s3-s3s4-s4-s9-s9s14)  [below of=Ff3f4-f14-f3f4-f4-s14-s16-s3-s3s4-s4-s9-s9s14]  {$Ff3f4-f11-f14-f3f4-f4-r-s12-s14-s16-s3-s3s4-s4-s9-s9s14$};
+   \node[state]   (s12)  [below of=Ff3f4-f11-f14-f3f4-f4-r-s12-s14-s16-s3-s3s4-s4-s9-s9s14]  {$s12$};
+   \node[state]   (f9)  [below of=s12]  {$f9$};
+   \node[state]   (Ff3f4-f3-f3f4-f9-r-s11-s14-s3-s3s4-s4-s9-s9s14)  [below of=f9]  {$Ff3f4-f3-f3f4-f9-r-s11-s14-s3-s3s4-s4-s9-s9s14$};
+   \node[state]   (s14)  [below of=Ff3f4-f3-f3f4-f9-r-s11-s14-s3-s3s4-s4-s9-s9s14]  {$s14$};
+   \node[state]   (f14)  [below of=s14]  {$f14$};
+   \node[state]   (s11)  [below of=f14]  {$s11$};
+   \node[state]   (s4)  [below of=s11]  {$s4$};
+   \node[state]   (Ff3f4-f3-f3f4-s14-s3-s3s4-s4-s9-s9s14)  [below of=s4]  {$Ff3f4-f3-f3f4-s14-s3-s3s4-s4-s9-s9s14$};
+   \node[state]   (f14-s16)  [below of=Ff3f4-f3-f3f4-s14-s3-s3s4-s4-s9-s9s14]  {$f14-s16$};
+   \node[state]   (f11-s12)  [below of=f14-s16]  {$f11-s12$};
+   \node[state]   (Ff3f4-f11-f14-f3f4-f4-s12-s14-s16-s3-s3s4-s4-s9-s9s14)  [below of=f11-s12]  {$Ff3f4-f11-f14-f3f4-f4-s12-s14-s16-s3-s3s4-s4-s9-s9s14$};
+   \node[state]   (Ff3f4-f3f4-f4-s14-s3-s3s4-s4-s9-s9s14)  [below of=Ff3f4-f11-f14-f3f4-f4-s12-s14-s16-s3-s3s4-s4-s9-s9s14]  {$Ff3f4-f3f4-f4-s14-s3-s3s4-s4-s9-s9s14$};
+   \node[state]   (s3)  [below of=Ff3f4-f3f4-f4-s14-s3-s3s4-s4-s9-s9s14]  {$s3$};
+   \node[state]   (f3f4)  [below of=s3]  {$f3f4$};
+   \node[state]   (f16)  [below of=f3f4]  {$f16$};
+   \node[state]   (s9)  [below of=f16]  {$s9$};
+   \node[state]   (s3s4)  [below of=s9]  {$s3s4$};
+   \node[state]   (Ff3f4-f3-f3f4-f9-s11-s14-s3-s3s4-s4-s9-s9s14)  [below of=s3s4]  {$Ff3f4-f3-f3f4-f9-s11-s14-s3-s3s4-s4-s9-s9s14$};
+   \node[state]   (f4)  [below of=Ff3f4-f3-f3f4-f9-s11-s14-s3-s3s4-s4-s9-s9s14]  {$f4$};
+   \node[state]   (s22)  [below of=f4]  {$s22$};
+   \node[state,accepting]   (Ff21f22-Ff3f4-f21-f21f22-f3-f3f4-f9-r-s11-s14-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)  [below of=s22]  {$Ff21f22-Ff3f4-f21-f21f22-f3-f3f4-f9-r-s11-s14-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14$};
+   \node[state,accepting]   (Ff21f22-f21f22-f22-r-s21-s21s22-s22)  [below of=Ff21f22-Ff3f4-f21-f21f22-f3-f3f4-f9-r-s11-s14-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14]  {$Ff21f22-f21f22-f22-r-s21-s21s22-s22$};
+   \node[state,accepting]   (f17)  [below of=Ff21f22-f21f22-f22-r-s21-s21s22-s22]  {$f17$};
+   \node[state,accepting]   (Ff21f22-Ff3f4-Ss21s22-f12-f12f17-f16-f3-f3f4-f9-r-s11-s14-s17-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)  [below of=f17]  {$Ff21f22-Ff3f4-Ss21s22-f12-f12f17-f16-f3-f3f4-f9-r-s11-s14-s17-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14$};
+   \node[state,accepting]   (Ff21f22-f21-f21f22-s21-s21s22-s22)  [below of=Ff21f22-Ff3f4-Ss21s22-f12-f12f17-f16-f3-f3f4-f9-r-s11-s14-s17-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14]  {$Ff21f22-f21-f21f22-s21-s21s22-s22$};
+   \node[state,accepting]   (Ff21f22)  [below of=Ff21f22-f21-f21f22-s21-s21s22-s22]  {$Ff21f22$};
+   \node[state,accepting]   (Ff21f22-f21-f21f22-r-s21-s21s22-s22)  [below of=Ff21f22]  {$Ff21f22-f21-f21f22-r-s21-s21s22-s22$};
+   \node[state,accepting]   (Ff21f22-Ff3f4-f16-f21-f21f22-f3-f3f4-f9-r-s11-s14-s17-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)  [below of=Ff21f22-f21-f21f22-r-s21-s21s22-s22]  {$Ff21f22-Ff3f4-f16-f21-f21f22-f3-f3f4-f9-r-s11-s14-s17-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14$};
+   \node[state,accepting]   (Ff21f22-Ff3f4-Ss21s22-f12-f12f17-f16-f3-f3f4-f9-s11-s14-s17-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)  [below of=Ff21f22-Ff3f4-f16-f21-f21f22-f3-f3f4-f9-r-s11-s14-s17-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14]  {$Ff21f22-Ff3f4-Ss21s22-f12-f12f17-f16-f3-f3f4-f9-s11-s14-s17-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14$};
+   \node[state,accepting]   (Ss21s22)  [below of=Ff21f22-Ff3f4-Ss21s22-f12-f12f17-f16-f3-f3f4-f9-s11-s14-s17-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14]  {$Ss21s22$};
+   \node[state,accepting]   (Ff21f22-Ff3f4-Ss21s22-f12-f12f17-f16-f21-f21f22-f3-f3f4-f9-r-s11-s14-s17-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)  [below of=Ss21s22]  {$Ff21f22-Ff3f4-Ss21s22-f12-f12f17-f16-f21-f21f22-f3-f3f4-f9-r-s11-s14-s17-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14$};
+   \node[state,accepting]   (Ff21f22-Ss21s22-f12-f12f17-s21-s21s22-s22)  [below of=Ff21f22-Ff3f4-Ss21s22-f12-f12f17-f16-f21-f21f22-f3-f3f4-f9-r-s11-s14-s17-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14]  {$Ff21f22-Ss21s22-f12-f12f17-s21-s21s22-s22$};
+   \node[state,accepting]   (f21)  [below of=Ff21f22-Ss21s22-f12-f12f17-s21-s21s22-s22]  {$f21$};
+   \node[state,accepting]   (f12f17)  [below of=f21]  {$f12f17$};
+   \node[state,accepting]   (Ff21f22-Ff3f4-f14-f21f22-f22-f3f4-f4-r-s14-s16-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)  [below of=f12f17]  {$Ff21f22-Ff3f4-f14-f21f22-f22-f3f4-f4-r-s14-s16-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14$};
+   \node[state,accepting]   (Ff21f22-Ff3f4-f11-f14-f21f22-f22-f3f4-f4-r-s12-s14-s16-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)  [below of=Ff21f22-Ff3f4-f14-f21f22-f22-f3f4-f4-r-s14-s16-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14]  {$Ff21f22-Ff3f4-f11-f14-f21f22-f22-f3f4-f4-r-s12-s14-s16-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14$};
+   \node[state,accepting]   (Ff21f22-Ff3f4-Ss21s22-f11-f12f17-f14-f17-f21f22-f22-f3f4-f4-r-s12-s14-s16-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)  [below of=Ff21f22-Ff3f4-f11-f14-f21f22-f22-f3f4-f4-r-s12-s14-s16-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14]  {$Ff21f22-Ff3f4-Ss21s22-f11-f12f17-f14-f17-f21f22-f22-f3f4-f4-r-s12-s14-s16-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14$};
+   \node[state,accepting]   (f21f22)  [below of=Ff21f22-Ff3f4-Ss21s22-f11-f12f17-f14-f17-f21f22-f22-f3f4-f4-r-s12-s14-s16-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14]  {$f21f22$};
+   \node[state,accepting]   (f12)  [below of=f21f22]  {$f12$};
+   \node[state,accepting]   (Ff21f22-Ff3f4-Ss21s22-f11-f12f17-f14-f17-f3f4-f4-r-s12-s14-s16-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)  [below of=f12]  {$Ff21f22-Ff3f4-Ss21s22-f11-f12f17-f14-f17-f3f4-f4-r-s12-s14-s16-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14$};
+   \node[state,accepting]   (f22)  [below of=Ff21f22-Ff3f4-Ss21s22-f11-f12f17-f14-f17-f3f4-f4-r-s12-s14-s16-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14]  {$f22$};
+   \node[state,accepting]   (Ff21f22-Ss21s22-f12f17-f17-s21-s21s22-s22)  [below of=f22]  {$Ff21f22-Ss21s22-f12f17-f17-s21-s21s22-s22$};
+   \node[state,accepting]   (Ff21f22-f21f22-f22-s21-s21s22-s22)  [below of=Ff21f22-Ss21s22-f12f17-f17-s21-s21s22-s22]  {$Ff21f22-f21f22-f22-s21-s21s22-s22$};
+
+   \path  
+     (Ff21f22-Ff3f4-f21-f21f22-f3-f3f4-f9-r-s11-s14-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)  edge  [loop above]  node {a}  (Ff21f22-Ff3f4-f21-f21f22-f3-f3f4-f9-r-s11-s14-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)
+     (Ff21f22-Ff3f4-f21-f21f22-f3-f3f4-f9-r-s11-s14-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)  edge  [bend left]    node {b}  (Ff21f22-Ff3f4-f11-f14-f21f22-f22-f3f4-f4-r-s12-s14-s16-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)
+     (Ff3f4-f14-f3f4-f4-r-s14-s16-s3-s3s4-s4-s9-s9s14)  edge  [bend right]    node {a}  (Ff3f4-f16-f3-f3f4-f9-r-s11-s14-s17-s3-s3s4-s4-s9-s9s14)
+     (Ff3f4-f14-f3f4-f4-r-s14-s16-s3-s3s4-s4-s9-s9s14)  edge  [loop above]  node {b}  (Ff3f4-f14-f3f4-f4-r-s14-s16-s3-s3s4-s4-s9-s9s14)
+     (Ff21f22-f21f22-f22-r-s21-s21s22-s22)  edge  [bend left]    node {a}  (Ff21f22-f21-f21f22-r-s21-s21s22-s22)
+     (Ff21f22-f21f22-f22-r-s21-s21s22-s22)  edge  [loop above]  node {b}  (Ff21f22-f21f22-f22-r-s21-s21s22-s22)
+     (s21)  edge  [bend right]    node {a}  (Ff21f22-f21-f21f22-s21-s21s22-s22)
+     (s21)  edge  [bend left]    node {b}  (r)
+     (Ff3f4-f16-f3-f3f4-f9-s11-s14-s17-s3-s3s4-s4-s9-s9s14)  edge  [bend right]    node {a}  (Ff3f4-f3-f3f4-f9-r-s11-s14-s3-s3s4-s4-s9-s9s14)
+     (Ff3f4-f16-f3-f3f4-f9-s11-s14-s17-s3-s3s4-s4-s9-s9s14)  edge  [bend left]    node {b}  (Ff21f22-Ff3f4-Ss21s22-f11-f12f17-f14-f17-f3f4-f4-r-s12-s14-s16-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)
+     (f17)  edge  [bend right]    node {a}  (Ff21f22-f21-f21f22-s21-s21s22-s22)
+     (f17)  edge  [bend left]    node {b}  (Ff21f22-f21f22-f22-s21-s21s22-s22)
+     (f3)  edge  [bend right]    node {a}  (Ff3f4-f3-f3f4-f9-s11-s14-s3-s3s4-s4-s9-s9s14)
+     (f3)  edge  [bend left]    node {b}  (Ff3f4-f14-f3f4-f4-s14-s16-s3-s3s4-s4-s9-s9s14)
+     (Ff21f22-Ff3f4-Ss21s22-f12-f12f17-f16-f3-f3f4-f9-r-s11-s14-s17-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)  edge  [bend right]    node {a}  (Ff21f22-Ff3f4-f21-f21f22-f3-f3f4-f9-r-s11-s14-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)
+     (Ff21f22-Ff3f4-Ss21s22-f12-f12f17-f16-f3-f3f4-f9-r-s11-s14-s17-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)  edge  [bend left]    node {b}  (Ff21f22-Ff3f4-Ss21s22-f11-f12f17-f14-f17-f21f22-f22-f3f4-f4-r-s12-s14-s16-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)
+     (f11)  edge  [bend right]    node {a}  (Ff21f22-Ss21s22-f12-f12f17-s21-s21s22-s22)
+     (f11)  edge  [bend left]    node {b}  (r)
+     (Ff21f22-f21-f21f22-s21-s21s22-s22)  edge  [bend right]    node {a}  (Ff21f22-f21-f21f22-r-s21-s21s22-s22)
+     (Ff21f22-f21-f21f22-s21-s21s22-s22)  edge  [bend left]    node {b}  (Ff21f22-f21f22-f22-r-s21-s21s22-s22)
+     (Ff3f4)  edge  [bend right]    node {a}  (f9-s11)
+     (Ff3f4)  edge  [bend left]    node {b}  (f14-s16)
+     (Ff21f22)  edge  [bend right]    node {a}  (r)
+     (Ff21f22)  edge  [bend left]    node {b}  (r)
+     (Ff21f22-f21-f21f22-r-s21-s21s22-s22)  edge  [loop above]  node {a}  (Ff21f22-f21-f21f22-r-s21-s21s22-s22)
+     (Ff21f22-f21-f21f22-r-s21-s21s22-s22)  edge  [bend right]    node {b}  (Ff21f22-f21f22-f22-r-s21-s21s22-s22)
+     (Ff21f22-Ff3f4-f16-f21-f21f22-f3-f3f4-f9-r-s11-s14-s17-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)  edge  [bend left]    node {a}  (Ff21f22-Ff3f4-f21-f21f22-f3-f3f4-f9-r-s11-s14-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)
+     (Ff21f22-Ff3f4-f16-f21-f21f22-f3-f3f4-f9-r-s11-s14-s17-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)  edge  [bend right]    node {b}  (Ff21f22-Ff3f4-Ss21s22-f11-f12f17-f14-f17-f21f22-f22-f3f4-f4-r-s12-s14-s16-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)
+     (Ff3f4-f16-f3-f3f4-f9-r-s11-s14-s17-s3-s3s4-s4-s9-s9s14)  edge  [bend left]    node {a}  (Ff3f4-f3-f3f4-f9-r-s11-s14-s3-s3s4-s4-s9-s9s14)
+     (Ff3f4-f16-f3-f3f4-f9-r-s11-s14-s17-s3-s3s4-s4-s9-s9s14)  edge  [bend right]    node {b}  (Ff21f22-Ff3f4-Ss21s22-f11-f12f17-f14-f17-f3f4-f4-r-s12-s14-s16-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)
+     (Ff21f22-Ff3f4-Ss21s22-f12-f12f17-f16-f3-f3f4-f9-s11-s14-s17-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)  edge  [bend left]    node {a}  (Ff21f22-Ff3f4-f21-f21f22-f3-f3f4-f9-r-s11-s14-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)
+     (Ff21f22-Ff3f4-Ss21s22-f12-f12f17-f16-f3-f3f4-f9-s11-s14-s17-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)  edge  [bend right]    node {b}  (Ff21f22-Ff3f4-Ss21s22-f11-f12f17-f14-f17-f21f22-f22-f3f4-f4-r-s12-s14-s16-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)
+     (s17)  edge  [bend left]    node {a}  (r)
+     (s17)  edge  [bend right]    node {b}  (Ff21f22-Ss21s22-f12f17-f17-s21-s21s22-s22)
+     (Ss21s22)  edge  [bend left]    node {a}  (Ff21f22-f21-f21f22-s21-s21s22-s22)
+     (Ss21s22)  edge  [bend right]    node {b}  (Ff21f22-f21f22-f22-s21-s21s22-s22)
+     (s16)  edge  [bend left]    node {a}  (f16-s17)
+     (s16)  edge  [bend right]    node {b}  (r)
+     (Ff21f22-Ff3f4-Ss21s22-f12-f12f17-f16-f21-f21f22-f3-f3f4-f9-r-s11-s14-s17-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)  edge  [bend left]    node {a}  (Ff21f22-Ff3f4-f21-f21f22-f3-f3f4-f9-r-s11-s14-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)
+     (Ff21f22-Ff3f4-Ss21s22-f12-f12f17-f16-f21-f21f22-f3-f3f4-f9-r-s11-s14-s17-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)  edge  [bend right]    node {b}  (Ff21f22-Ff3f4-Ss21s22-f11-f12f17-f14-f17-f21f22-f22-f3f4-f4-r-s12-s14-s16-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)
+     (f9-s11)  edge  [bend left]    node {a}  (r)
+     (f9-s11)  edge  [bend right]    node {b}  (f11-s12)
+     (s9s14)  edge  [bend left]    node {a}  (f9-s11)
+     (s9s14)  edge  [bend right]    node {b}  (f14-s16)
+     (s21s22)  edge  [bend left]    node {a}  (Ff21f22-f21-f21f22-s21-s21s22-s22)
+     (s21s22)  edge  [bend right]    node {b}  (Ff21f22-f21f22-f22-s21-s21s22-s22)
+     (r)  edge  [loop above]  node {a}  (r)
+     (r)  edge  [loop above]  node {b}  (r)
+     (f16-s17)  edge  [bend left]    node {a}  (r)
+     (f16-s17)  edge  [bend right]    node {b}  (Ff21f22-Ss21s22-f12f17-f17-s21-s21s22-s22)
+     (Ff3f4-f14-f3f4-f4-s14-s16-s3-s3s4-s4-s9-s9s14)  edge  [bend left]    node {a}  (Ff3f4-f16-f3-f3f4-f9-s11-s14-s17-s3-s3s4-s4-s9-s9s14)
+     (Ff3f4-f14-f3f4-f4-s14-s16-s3-s3s4-s4-s9-s9s14)  edge  [loop above]  node {b}  (Ff3f4-f14-f3f4-f4-s14-s16-s3-s3s4-s4-s9-s9s14)
+     (Ff21f22-Ss21s22-f12-f12f17-s21-s21s22-s22)  edge  [bend right]    node {a}  (Ff21f22-f21-f21f22-s21-s21s22-s22)
+     (Ff21f22-Ss21s22-f12-f12f17-s21-s21s22-s22)  edge  [bend left]    node {b}  (Ff21f22-f21f22-f22-s21-s21s22-s22)
+     (Ff3f4-f11-f14-f3f4-f4-r-s12-s14-s16-s3-s3s4-s4-s9-s9s14)  edge  [bend right]    node {a}  (Ff21f22-Ff3f4-Ss21s22-f12-f12f17-f16-f3-f3f4-f9-r-s11-s14-s17-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)
+     (Ff3f4-f11-f14-f3f4-f4-r-s12-s14-s16-s3-s3s4-s4-s9-s9s14)  edge  [bend left]    node {b}  (Ff3f4-f14-f3f4-f4-r-s14-s16-s3-s3s4-s4-s9-s9s14)
+     (Ss3s4)  edge  [bend right]    node {a}  (Ff3f4-f3-f3f4-f9-s11-s14-s3-s3s4-s4-s9-s9s14)
+     (Ss3s4)  edge  [bend left]    node {b}  (Ff3f4-f14-f3f4-f4-s14-s16-s3-s3s4-s4-s9-s9s14)
+     (f21)  edge  [bend right]    node {a}  (Ff21f22-f21-f21f22-s21-s21s22-s22)
+     (f21)  edge  [bend left]    node {b}  (Ff21f22-f21f22-f22-s21-s21s22-s22)
+     (f12f17)  edge  [bend right]    node {a}  (Ff21f22-f21-f21f22-s21-s21s22-s22)
+     (f12f17)  edge  [bend left]    node {b}  (Ff21f22-f21f22-f22-s21-s21s22-s22)
+     (s12)  edge  [bend right]    node {a}  (Ff21f22-Ss21s22-f12-f12f17-s21-s21s22-s22)
+     (s12)  edge  [bend left]    node {b}  (r)
+     (Ff21f22-Ff3f4-f14-f21f22-f22-f3f4-f4-r-s14-s16-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)  edge  [bend right]    node {a}  (Ff21f22-Ff3f4-f16-f21-f21f22-f3-f3f4-f9-r-s11-s14-s17-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)
+     (Ff21f22-Ff3f4-f14-f21f22-f22-f3f4-f4-r-s14-s16-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)  edge  [loop above]  node {b}  (Ff21f22-Ff3f4-f14-f21f22-f22-f3f4-f4-r-s14-s16-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)
+     (f9)  edge  [bend left]    node {a}  (r)
+     (f9)  edge  [bend right]    node {b}  (f11-s12)
+     (Ff3f4-f3-f3f4-f9-r-s11-s14-s3-s3s4-s4-s9-s9s14)  edge  [loop above]  node {a}  (Ff3f4-f3-f3f4-f9-r-s11-s14-s3-s3s4-s4-s9-s9s14)
+     (Ff3f4-f3-f3f4-f9-r-s11-s14-s3-s3s4-s4-s9-s9s14)  edge  [bend left]    node {b}  (Ff3f4-f11-f14-f3f4-f4-r-s12-s14-s16-s3-s3s4-s4-s9-s9s14)
+     (Ff21f22-Ff3f4-f11-f14-f21f22-f22-f3f4-f4-r-s12-s14-s16-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)  edge  [bend right]    node {a}  (Ff21f22-Ff3f4-Ss21s22-f12-f12f17-f16-f21-f21f22-f3-f3f4-f9-r-s11-s14-s17-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)
+     (Ff21f22-Ff3f4-f11-f14-f21f22-f22-f3f4-f4-r-s12-s14-s16-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)  edge  [bend left]    node {b}  (Ff21f22-Ff3f4-f14-f21f22-f22-f3f4-f4-r-s14-s16-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)
+     (s14)  edge  [bend right]    node {a}  (r)
+     (s14)  edge  [bend left]    node {b}  (f14-s16)
+     (f14)  edge  [bend right]    node {a}  (f16-s17)
+     (f14)  edge  [bend left]    node {b}  (r)
+     (s11)  edge  [bend right]    node {a}  (r)
+     (s11)  edge  [bend left]    node {b}  (f11-s12)
+     (Ff21f22-Ff3f4-Ss21s22-f11-f12f17-f14-f17-f21f22-f22-f3f4-f4-r-s12-s14-s16-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)  edge  [bend right]    node {a}  (Ff21f22-Ff3f4-Ss21s22-f12-f12f17-f16-f21-f21f22-f3-f3f4-f9-r-s11-s14-s17-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)
+     (Ff21f22-Ff3f4-Ss21s22-f11-f12f17-f14-f17-f21f22-f22-f3f4-f4-r-s12-s14-s16-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)  edge  [bend left]    node {b}  (Ff21f22-Ff3f4-f14-f21f22-f22-f3f4-f4-r-s14-s16-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)
+     (s4)  edge  [bend right]    node {a}  (r)
+     (s4)  edge  [bend left]    node {b}  (Ff3f4-f3f4-f4-s14-s3-s3s4-s4-s9-s9s14)
+     (Ff3f4-f3-f3f4-s14-s3-s3s4-s4-s9-s9s14)  edge  [bend right]    node {a}  (Ff3f4-f3-f3f4-f9-r-s11-s14-s3-s3s4-s4-s9-s9s14)
+     (Ff3f4-f3-f3f4-s14-s3-s3s4-s4-s9-s9s14)  edge  [bend left]    node {b}  (Ff3f4-f14-f3f4-f4-s14-s16-s3-s3s4-s4-s9-s9s14)
+     (f14-s16)  edge  [bend right]    node {a}  (f16-s17)
+     (f14-s16)  edge  [bend left]    node {b}  (r)
+     (f21f22)  edge  [bend right]    node {a}  (Ff21f22-f21-f21f22-s21-s21s22-s22)
+     (f21f22)  edge  [bend left]    node {b}  (Ff21f22-f21f22-f22-s21-s21s22-s22)
+     (f11-s12)  edge  [bend right]    node {a}  (Ff21f22-Ss21s22-f12-f12f17-s21-s21s22-s22)
+     (f11-s12)  edge  [bend left]    node {b}  (r)
+     (Ff3f4-f11-f14-f3f4-f4-s12-s14-s16-s3-s3s4-s4-s9-s9s14)  edge  [bend right]    node {a}  (Ff21f22-Ff3f4-Ss21s22-f12-f12f17-f16-f3-f3f4-f9-s11-s14-s17-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)
+     (Ff3f4-f11-f14-f3f4-f4-s12-s14-s16-s3-s3s4-s4-s9-s9s14)  edge  [bend left]    node {b}  (Ff3f4-f14-f3f4-f4-s14-s16-s3-s3s4-s4-s9-s9s14)
+     (Ff3f4-f3f4-f4-s14-s3-s3s4-s4-s9-s9s14)  edge  [bend right]    node {a}  (Ff3f4-f3-f3f4-f9-r-s11-s14-s3-s3s4-s4-s9-s9s14)
+     (Ff3f4-f3f4-f4-s14-s3-s3s4-s4-s9-s9s14)  edge  [bend left]    node {b}  (Ff3f4-f14-f3f4-f4-s14-s16-s3-s3s4-s4-s9-s9s14)
+     (f12)  edge  [bend right]    node {a}  (Ff21f22-f21-f21f22-s21-s21s22-s22)
+     (f12)  edge  [bend left]    node {b}  (Ff21f22-f21f22-f22-s21-s21s22-s22)
+     (Ff21f22-Ff3f4-Ss21s22-f11-f12f17-f14-f17-f3f4-f4-r-s12-s14-s16-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)  edge  [bend right]    node {a}  (Ff21f22-Ff3f4-Ss21s22-f12-f12f17-f16-f21-f21f22-f3-f3f4-f9-r-s11-s14-s17-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)
+     (Ff21f22-Ff3f4-Ss21s22-f11-f12f17-f14-f17-f3f4-f4-r-s12-s14-s16-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)  edge  [bend left]    node {b}  (Ff21f22-Ff3f4-f14-f21f22-f22-f3f4-f4-r-s14-s16-s21-s21s22-s22-s3-s3s4-s4-s9-s9s14)
+     (f22)  edge  [bend right]    node {a}  (Ff21f22-f21-f21f22-s21-s21s22-s22)
+     (f22)  edge  [bend left]    node {b}  (Ff21f22-f21f22-f22-s21-s21s22-s22)
+     (s3)  edge  [bend right]    node {a}  (Ff3f4-f3-f3f4-s14-s3-s3s4-s4-s9-s9s14)
+     (s3)  edge  [bend left]    node {b}  (r)
+     (f3f4)  edge  [bend right]    node {a}  (Ff3f4-f3-f3f4-f9-s11-s14-s3-s3s4-s4-s9-s9s14)
+     (f3f4)  edge  [bend left]    node {b}  (Ff3f4-f14-f3f4-f4-s14-s16-s3-s3s4-s4-s9-s9s14)
+     (f16)  edge  [bend right]    node {a}  (r)
+     (f16)  edge  [bend left]    node {b}  (Ff21f22-Ss21s22-f12f17-f17-s21-s21s22-s22)
+     (s9)  edge  [bend right]    node {a}  (f9-s11)
+     (s9)  edge  [bend left]    node {b}  (r)
+     (s3s4)  edge  [bend right]    node {a}  (Ff3f4-f3-f3f4-s14-s3-s3s4-s4-s9-s9s14)
+     (s3s4)  edge  [bend left]    node {b}  (Ff3f4-f3f4-f4-s14-s3-s3s4-s4-s9-s9s14)
+     (Ff21f22-Ss21s22-f12f17-f17-s21-s21s22-s22)  edge  [bend right]    node {a}  (Ff21f22-f21-f21f22-s21-s21s22-s22)
+     (Ff21f22-Ss21s22-f12f17-f17-s21-s21s22-s22)  edge  [bend left]    node {b}  (Ff21f22-f21f22-f22-s21-s21s22-s22)
+     (f4)  edge  [bend right]    node {a}  (Ff3f4-f3-f3f4-f9-s11-s14-s3-s3s4-s4-s9-s9s14)
+     (f4)  edge  [bend left]    node {b}  (Ff3f4-f14-f3f4-f4-s14-s16-s3-s3s4-s4-s9-s9s14)
+     (Ff3f4-f3-f3f4-f9-s11-s14-s3-s3s4-s4-s9-s9s14)  edge  [loop above]  node {a}  (Ff3f4-f3-f3f4-f9-s11-s14-s3-s3s4-s4-s9-s9s14)
+     (Ff3f4-f3-f3f4-f9-s11-s14-s3-s3s4-s4-s9-s9s14)  edge  [bend right]    node {b}  (Ff3f4-f11-f14-f3f4-f4-s12-s14-s16-s3-s3s4-s4-s9-s9s14)
+     (Ff21f22-f21f22-f22-s21-s21s22-s22)  edge  [bend left]    node {a}  (Ff21f22-f21-f21f22-r-s21-s21s22-s22)
+     (Ff21f22-f21f22-f22-s21-s21s22-s22)  edge  [bend right]    node {b}  (Ff21f22-f21f22-f22-r-s21-s21s22-s22)
+     (s22)  edge  [bend left]    node {a}  (r)
+     (s22)  edge  [bend right]    node {b}  (Ff21f22-f21f22-f22-s21-s21s22-s22);
+\end{tikzpicture}
+\end{document}

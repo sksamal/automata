@@ -1,0 +1,9 @@
+a*baaa*|a*abaa*|a*aaba*|aaa*
+aab
+abaa
+aaab
+baa
+aaa
+abbb
+bbb
+bbaa

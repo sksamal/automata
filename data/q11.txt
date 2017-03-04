@@ -1,0 +1,7 @@
+b*aa*b(bb*aa*b)*a(a|b)*
+aba
+abbbaaba
+abbbaababbaabb
+e
+baa
+abbba

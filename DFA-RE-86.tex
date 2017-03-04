@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\usepackage[latin1]{}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{ssamal@cse.unl.edu}
+\lhead{CSCE828-Project1-DFA-RE-86}
+\lfoot{\copyright Suraj Samal}
+\rfoot{\thepage}
+\begin{document}
+\title{CSCE828-Project1-ssamal@cse.unl.edu}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.8cm,semithick]
+   \tikzstyle{every state}=[fill=red,draw=blue,text=white]
+   \node[state,initial]   (Ss3s4)        {$Ss3s4$};
+   \node[state]   (f3)  [below of=Ss3s4]  {$f3$};
+   \node[state]   (s4)  [below of=f3]  {$s4$};
+   \node[state]   (Ff3f4-f3f4-f4-s3-s3s4-s4-s5)  [below of=s4]  {$Ff3f4-f3f4-f4-s3-s3s4-s4-s5$};
+   \node[state]   (f4)  [below of=Ff3f4-f3f4-f4-s3-s3s4-s4-s5]  {$f4$};
+   \node[state]   (Ff3f4-f3f4-f4-r-s3-s3s4-s4-s5)  [below of=f4]  {$Ff3f4-f3f4-f4-r-s3-s3s4-s4-s5$};
+   \node[state]   (f3f4)  [below of=Ff3f4-f3f4-f4-r-s3-s3s4-s4-s5]  {$f3f4$};
+   \node[state]   (Ff3f4)  [below of=f3f4]  {$Ff3f4$};
+   \node[state]   (r)  [below of=Ff3f4]  {$r$};
+   \node[state]   (s5)  [below of=r]  {$s5$};
+   \node[state]   (s3)  [below of=s5]  {$s3$};
+   \node[state]   (Ff3f4-f3-f3f4-s3-s3s4-s4-s5)  [below of=s3]  {$Ff3f4-f3-f3f4-s3-s3s4-s4-s5$};
+   \node[state]   (s3s4)  [below of=Ff3f4-f3-f3f4-s3-s3s4-s4-s5]  {$s3s4$};
+   \node[state,accepting]   (Ff3f4-f3-f3f4-f5-r-s3-s3s4-s4-s5)  [below of=s3s4]  {$Ff3f4-f3-f3f4-f5-r-s3-s3s4-s4-s5$};
+   \node[state,accepting]   (Ff3f4-f3-f3f4-f5-s3-s3s4-s4-s5)  [below of=Ff3f4-f3-f3f4-f5-r-s3-s3s4-s4-s5]  {$Ff3f4-f3-f3f4-f5-s3-s3s4-s4-s5$};
+   \node[state,accepting]   (f5)  [below of=Ff3f4-f3-f3f4-f5-s3-s3s4-s4-s5]  {$f5$};
+
+   \path  
+     (f3)  edge  [bend left]    node {a}  (Ff3f4-f3-f3f4-f5-s3-s3s4-s4-s5)
+     (f3)  edge  [bend right]    node {b}  (Ff3f4-f3f4-f4-s3-s3s4-s4-s5)
+     (s4)  edge  [bend left]    node {a}  (r)
+     (s4)  edge  [bend right]    node {b}  (Ff3f4-f3f4-f4-s3-s3s4-s4-s5)
+     (Ff3f4-f3f4-f4-s3-s3s4-s4-s5)  edge  [bend left]    node {a}  (Ff3f4-f3-f3f4-f5-s3-s3s4-s4-s5)
+     (Ff3f4-f3f4-f4-s3-s3s4-s4-s5)  edge  [loop above]  node {b}  (Ff3f4-f3f4-f4-s3-s3s4-s4-s5)
+     (f4)  edge  [bend right]    node {a}  (Ff3f4-f3-f3f4-f5-s3-s3s4-s4-s5)
+     (f4)  edge  [bend left]    node {b}  (Ff3f4-f3f4-f4-s3-s3s4-s4-s5)
+     (Ff3f4-f3-f3f4-f5-r-s3-s3s4-s4-s5)  edge  [loop above]  node {a}  (Ff3f4-f3-f3f4-f5-r-s3-s3s4-s4-s5)
+     (Ff3f4-f3-f3f4-f5-r-s3-s3s4-s4-s5)  edge  [bend right]    node {b}  (Ff3f4-f3f4-f4-r-s3-s3s4-s4-s5)
+     (Ss3s4)  edge  [bend left]    node {a}  (Ff3f4-f3-f3f4-f5-s3-s3s4-s4-s5)
+     (Ss3s4)  edge  [bend right]    node {b}  (Ff3f4-f3f4-f4-s3-s3s4-s4-s5)
+     (Ff3f4-f3f4-f4-r-s3-s3s4-s4-s5)  edge  [bend left]    node {a}  (Ff3f4-f3-f3f4-f5-r-s3-s3s4-s4-s5)
+     (Ff3f4-f3f4-f4-r-s3-s3s4-s4-s5)  edge  [loop above]  node {b}  (Ff3f4-f3f4-f4-r-s3-s3s4-s4-s5)
+     (f3f4)  edge  [bend right]    node {a}  (Ff3f4-f3-f3f4-f5-s3-s3s4-s4-s5)
+     (f3f4)  edge  [bend left]    node {b}  (Ff3f4-f3f4-f4-s3-s3s4-s4-s5)
+     (Ff3f4)  edge  [bend right]    node {a}  (f5)
+     (Ff3f4)  edge  [bend left]    node {b}  (r)
+     (r)  edge  [loop above]  node {a}  (r)
+     (r)  edge  [loop above]  node {b}  (r)
+     (s5)  edge  [bend right]    node {a}  (f5)
+     (s5)  edge  [bend left]    node {b}  (r)
+     (s3)  edge  [bend right]    node {a}  (Ff3f4-f3-f3f4-s3-s3s4-s4-s5)
+     (s3)  edge  [bend left]    node {b}  (r)
+     (Ff3f4-f3-f3f4-s3-s3s4-s4-s5)  edge  [bend right]    node {a}  (Ff3f4-f3-f3f4-f5-r-s3-s3s4-s4-s5)
+     (Ff3f4-f3-f3f4-s3-s3s4-s4-s5)  edge  [bend left]    node {b}  (Ff3f4-f3f4-f4-r-s3-s3s4-s4-s5)
+     (s3s4)  edge  [bend right]    node {a}  (Ff3f4-f3-f3f4-s3-s3s4-s4-s5)
+     (s3s4)  edge  [bend left]    node {b}  (Ff3f4-f3f4-f4-s3-s3s4-s4-s5)
+     (Ff3f4-f3-f3f4-f5-s3-s3s4-s4-s5)  edge  [loop above]  node {a}  (Ff3f4-f3-f3f4-f5-s3-s3s4-s4-s5)
+     (Ff3f4-f3-f3f4-f5-s3-s3s4-s4-s5)  edge  [bend right]    node {b}  (Ff3f4-f3f4-f4-s3-s3s4-s4-s5)
+     (f5)  edge  [bend left]    node {a}  (r)
+     (f5)  edge  [bend right]    node {b}  (r);
+\end{tikzpicture}
+\end{document}

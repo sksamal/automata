@@ -1,0 +1,10 @@
+b*a(b|ab*a)*
+aaa
+e
+baaaab
+baaaaab
+ba
+ab
+aab
+aba
+abaab

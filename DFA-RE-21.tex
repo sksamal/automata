@@ -1,0 +1,341 @@
+\documentclass{article}
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\usepackage[latin1]{}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{ssamal@cse.unl.edu}
+\lhead{CSCE828-Project1-DFA-RE-21}
+\lfoot{\copyright Suraj Samal}
+\rfoot{\thepage}
+\begin{document}
+\title{CSCE828-Project1-ssamal@cse.unl.edu}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.8cm,semithick]
+   \tikzstyle{every state}=[fill=red,draw=blue,text=white]
+   \node[state,initial]   (Ss4Ss16Ss28s39)        {$Ss4Ss16Ss28s39$};
+   \node[state]   (Ff4-f4-s4-s7)  [below of=Ss4Ss16Ss28s39]  {$Ff4-f4-s4-s7$};
+   \node[state]   (f21)  [below of=Ff4-f4-s4-s7]  {$f21$};
+   \node[state]   (f39)  [below of=f21]  {$f39$};
+   \node[state]   (s31)  [below of=f39]  {$s31$};
+   \node[state]   (s33)  [below of=s31]  {$s33$};
+   \node[state]   (f19-s21)  [below of=s33]  {$f19-s21$};
+   \node[state]   (Ff16-f16-s16-s19)  [below of=f19-s21]  {$Ff16-f16-s16-s19$};
+   \node[state]   (s2)  [below of=Ff16-f16-s16-s19]  {$s2$};
+   \node[state]   (Ff4)  [below of=s2]  {$Ff4$};
+   \node[state]   (f7-s9)  [below of=Ff4]  {$f7-s9$};
+   \node[state]   (Ff28)  [below of=f7-s9]  {$Ff28$};
+   \node[state]   (f7)  [below of=Ff28]  {$f7$};
+   \node[state]   (f9)  [below of=f7]  {$f9$};
+   \node[state]   (f28)  [below of=f9]  {$f28$};
+   \node[state]   (f31)  [below of=f28]  {$f31$};
+   \node[state]   (s28)  [below of=f31]  {$s28$};
+   \node[state]   (s26)  [below of=s28]  {$s26$};
+   \node[state]   (f21-r-s22)  [below of=s26]  {$f21-r-s22$};
+   \node[state]   (Ff16-f16-f19-s16-s19-s21)  [below of=f21-r-s22]  {$Ff16-f16-f19-s16-s19-s21$};
+   \node[state]   (Ff28-f28-f31-f33-r-s28-s31-s33-s34)  [below of=Ff16-f16-f19-s16-s19-s21]  {$Ff28-f28-f31-f33-r-s28-s31-s33-s34$};
+   \node[state]   (s10)  [below of=Ff28-f28-f31-f33-r-s28-s31-s33-s34]  {$s10$};
+   \node[state]   (s16)  [below of=s10]  {$s16$};
+   \node[state]   (s4)  [below of=s16]  {$s4$};
+   \node[state]   (s9)  [below of=s4]  {$s9$};
+   \node[state]   (Ff16)  [below of=s9]  {$Ff16$};
+   \node[state]   (s40)  [below of=Ff16]  {$s40$};
+   \node[state]   (s7)  [below of=s40]  {$s7$};
+   \node[state]   (f21-s22)  [below of=s7]  {$f21-s22$};
+   \node[state]   (Ff28-f28-f31-f33-s28-s31-s33-s34)  [below of=f21-s22]  {$Ff28-f28-f31-f33-s28-s31-s33-s34$};
+   \node[state]   (s19)  [below of=Ff28-f28-f31-f33-s28-s31-s33-s34]  {$s19$};
+   \node[state]   (f33-s34)  [below of=s19]  {$f33-s34$};
+   \node[state]   (f16)  [below of=f33-s34]  {$f16$};
+   \node[state]   (f9-s10)  [below of=f16]  {$f9-s10$};
+   \node[state]   (f33)  [below of=f9-s10]  {$f33$};
+   \node[state]   (f21-f7-s22-s9)  [below of=f33]  {$f21-f7-s22-s9$};
+   \node[state]   (s14)  [below of=f21-f7-s22-s9]  {$s14$};
+   \node[state]   (Ff16-f16-f19-r-s16-s19-s21)  [below of=s14]  {$Ff16-f16-f19-r-s16-s19-s21$};
+   \node[state]   (s34)  [below of=Ff16-f16-f19-r-s16-s19-s21]  {$s34$};
+   \node[state]   (r)  [below of=s34]  {$r$};
+   \node[state]   (f4)  [below of=r]  {$f4$};
+   \node[state]   (f31-s33)  [below of=f4]  {$f31-s33$};
+   \node[state]   (Ff28-f28-f31-s28-s31-s33)  [below of=f31-s33]  {$Ff28-f28-f31-s28-s31-s33$};
+   \node[state]   (Ff16-Ff28-Ff4-f16-f19-f28-f31-f39-f4-s16-s19-s21-s28-s31-s33-s4-s40-s7)  [below of=Ff28-f28-f31-s28-s31-s33]  {$Ff16-Ff28-Ff4-f16-f19-f28-f31-f39-f4-s16-s19-s21-s28-s31-s33-s4-s40-s7$};
+   \node[state]   (s37)  [below of=Ff16-Ff28-Ff4-f16-f19-f28-f31-f39-f4-s16-s19-s21-s28-s31-s33-s4-s40-s7]  {$s37$};
+   \node[state]   (s21)  [below of=s37]  {$s21$};
+   \node[state]   (f19)  [below of=s21]  {$f19$};
+   \node[state]   (s22)  [below of=f19]  {$s22$};
+   \node[state]   (Ff28-f28-s28-s31)  [below of=s22]  {$Ff28-f28-s28-s31$};
+   \node[state,accepting]   (f37)  [below of=Ff28-f28-s28-s31]  {$f37$};
+   \node[state,accepting]   (Ff14Ff26Ff37-Ff16-Ff26Ff37-Ff28-Ff2Ff14Ff26Ff37-Ff37-Ff4-f16-f19-f28-f31-f33-f37-f4-r-s16-s19-s21-s28-s31-s33-s34-s37-s4-s7)  [below of=f37]  {$Ff14Ff26Ff37-Ff16-Ff26Ff37-Ff28-Ff2Ff14Ff26Ff37-Ff37-Ff4-f16-f19-f28-f31-f33-f37-f4-r-s16-s19-s21-s28-s31-s33-s34-s37-s4-s7$};
+   \node[state,accepting]   (Ss37)  [below of=Ff14Ff26Ff37-Ff16-Ff26Ff37-Ff28-Ff2Ff14Ff26Ff37-Ff37-Ff4-f16-f19-f28-f31-f33-f37-f4-r-s16-s19-s21-s28-s31-s33-s34-s37-s4-s7]  {$Ss37$};
+   \node[state,accepting]   (Ff14Ff26Ff37-Ff26Ff37-Ff2Ff14Ff26Ff37-Ff37-f37-s37)  [below of=Ss37]  {$Ff14Ff26Ff37-Ff26Ff37-Ff2Ff14Ff26Ff37-Ff37-f37-s37$};
+   \node[state,accepting]   (f14)  [below of=Ff14Ff26Ff37-Ff26Ff37-Ff2Ff14Ff26Ff37-Ff37-f37-s37]  {$f14$};
+   \node[state,accepting]   (Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-f14-r-s14)  [below of=f14]  {$Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-f14-r-s14$};
+   \node[state,accepting]   (Ff14Ff26Ff37-Ff26Ff37-Ff2Ff14Ff26Ff37-Ff37-Ss37-f40-s37)  [below of=Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-f14-r-s14]  {$Ff14Ff26Ff37-Ff26Ff37-Ff2Ff14Ff26Ff37-Ff37-Ss37-f40-s37$};
+   \node[state,accepting]   (Ff14Ff26Ff37)  [below of=Ff14Ff26Ff37-Ff26Ff37-Ff2Ff14Ff26Ff37-Ff37-Ss37-f40-s37]  {$Ff14Ff26Ff37$};
+   \node[state,accepting]   (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss26-f21-f34-f7-s22-s26-s9)  [below of=Ff14Ff26Ff37]  {$Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss26-f21-f34-f7-s22-s26-s9$};
+   \node[state,accepting]   (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss26-f21-f34-f7-r-s22-s26-s9)  [below of=Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss26-f21-f34-f7-s22-s26-s9]  {$Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss26-f21-f34-f7-r-s22-s26-s9$};
+   \node[state,accepting]   (Ss2)  [below of=Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss26-f21-f34-f7-r-s22-s26-s9]  {$Ss2$};
+   \node[state,accepting]   (f10)  [below of=Ss2]  {$f10$};
+   \node[state,accepting]   (Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-f14-s14)  [below of=f10]  {$Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-f14-s14$};
+   \node[state,accepting]   (f40)  [below of=Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-f14-s14]  {$f40$};
+   \node[state,accepting]   (Ff2-Ff2Ff14Ff26Ff37-f2-s2)  [below of=f40]  {$Ff2-Ff2Ff14Ff26Ff37-f2-s2$};
+   \node[state,accepting]   (f22)  [below of=Ff2-Ff2Ff14Ff26Ff37-f2-s2]  {$f22$};
+   \node[state,accepting]   (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss26-f34-r-s26)  [below of=f22]  {$Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss26-f34-r-s26$};
+   \node[state,accepting]   (Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-Ss14-f22-r-s14)  [below of=Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss26-f34-r-s26]  {$Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-Ss14-f22-r-s14$};
+   \node[state,accepting]   (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss26-f34-s26)  [below of=Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-Ss14-f22-r-s14]  {$Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss26-f34-s26$};
+   \node[state,accepting]   (Ff14-Ff14Ff26Ff37-Ff2-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-f14-f2-f26-r-s14-s2-s26)  [below of=Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss26-f34-s26]  {$Ff14-Ff14Ff26Ff37-Ff2-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-f14-f2-f26-r-s14-s2-s26$};
+   \node[state,accepting]   (Ff26)  [below of=Ff14-Ff14Ff26Ff37-Ff2-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-f14-f2-f26-r-s14-s2-s26]  {$Ff26$};
+   \node[state,accepting]   (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-f26-r-s26)  [below of=Ff26]  {$Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-f26-r-s26$};
+   \node[state,accepting]   (Ff37)  [below of=Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-f26-r-s26]  {$Ff37$};
+   \node[state,accepting]   (Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-Ss14-f22-s14)  [below of=Ff37]  {$Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-Ss14-f22-s14$};
+   \node[state,accepting]   (Ff14-Ff14Ff26Ff37-Ff2-Ff2Ff14Ff26Ff37-Ss2-f10-f14-r-s14-s2)  [below of=Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-Ss14-f22-s14]  {$Ff14-Ff14Ff26Ff37-Ff2-Ff2Ff14Ff26Ff37-Ss2-f10-f14-r-s14-s2$};
+   \node[state,accepting]   (Ff14-Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss14-f22-f26-f9-s10-s14-s26)  [below of=Ff14-Ff14Ff26Ff37-Ff2-Ff2Ff14Ff26Ff37-Ss2-f10-f14-r-s14-s2]  {$Ff14-Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss14-f22-f26-f9-s10-s14-s26$};
+   \node[state,accepting]   (Ff2)  [below of=Ff14-Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss14-f22-f26-f9-s10-s14-s26]  {$Ff2$};
+   \node[state,accepting]   (Ss14)  [below of=Ff2]  {$Ss14$};
+   \node[state,accepting]   (Ff2-Ff2Ff14Ff26Ff37-Ss2-f10-s2)  [below of=Ss14]  {$Ff2-Ff2Ff14Ff26Ff37-Ss2-f10-s2$};
+   \node[state,accepting]   (Ff14Ff26Ff37-Ff16-Ff26Ff37-Ff28-Ff2Ff14Ff26Ff37-Ff37-Ff4-Ss37-f16-f19-f28-f31-f33-f4-f40-s16-s19-s21-s28-s31-s33-s34-s37-s4-s7)  [below of=Ff2-Ff2Ff14Ff26Ff37-Ss2-f10-s2]  {$Ff14Ff26Ff37-Ff16-Ff26Ff37-Ff28-Ff2Ff14Ff26Ff37-Ff37-Ff4-Ss37-f16-f19-f28-f31-f33-f4-f40-s16-s19-s21-s28-s31-s33-s34-s37-s4-s7$};
+   \node[state,accepting]   (Ff14-Ff14Ff26Ff37-Ff2-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss2-f10-f14-f26-r-s14-s2-s26)  [below of=Ff14Ff26Ff37-Ff16-Ff26Ff37-Ff28-Ff2Ff14Ff26Ff37-Ff37-Ff4-Ss37-f16-f19-f28-f31-f33-f4-f40-s16-s19-s21-s28-s31-s33-s34-s37-s4-s7]  {$Ff14-Ff14Ff26Ff37-Ff2-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss2-f10-f14-f26-r-s14-s2-s26$};
+   \node[state,accepting]   (Ff14Ff26Ff37-Ff16-Ff26Ff37-Ff28-Ff2Ff14Ff26Ff37-Ff37-Ff4-f16-f19-f28-f31-f33-f37-f4-s16-s19-s21-s28-s31-s33-s34-s37-s4-s7)  [below of=Ff14-Ff14Ff26Ff37-Ff2-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss2-f10-f14-f26-r-s14-s2-s26]  {$Ff14Ff26Ff37-Ff16-Ff26Ff37-Ff28-Ff2Ff14Ff26Ff37-Ff37-Ff4-f16-f19-f28-f31-f33-f37-f4-s16-s19-s21-s28-s31-s33-s34-s37-s4-s7$};
+   \node[state,accepting]   (Ff14)  [below of=Ff14Ff26Ff37-Ff16-Ff26Ff37-Ff28-Ff2Ff14Ff26Ff37-Ff37-Ff4-f16-f19-f28-f31-f33-f37-f4-s16-s19-s21-s28-s31-s33-s34-s37-s4-s7]  {$Ff14$};
+   \node[state,accepting]   (f2)  [below of=Ff14]  {$f2$};
+   \node[state,accepting]   (f26)  [below of=f2]  {$f26$};
+   \node[state,accepting]   (Ss26)  [below of=f26]  {$Ss26$};
+   \node[state,accepting]   (Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-Ss14-f22-f9-s10-s14)  [below of=Ss26]  {$Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-Ss14-f22-f9-s10-s14$};
+   \node[state,accepting]   (Ff2Ff14Ff26Ff37)  [below of=Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-Ss14-f22-f9-s10-s14]  {$Ff2Ff14Ff26Ff37$};
+   \node[state,accepting]   (Ff14-Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss14-f22-f26-f9-r-s10-s14-s26)  [below of=Ff2Ff14Ff26Ff37]  {$Ff14-Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss14-f22-f26-f9-r-s10-s14-s26$};
+   \node[state,accepting]   (Ff2-Ff2Ff14Ff26Ff37-f2-r-s2)  [below of=Ff14-Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss14-f22-f26-f9-r-s10-s14-s26]  {$Ff2-Ff2Ff14Ff26Ff37-f2-r-s2$};
+   \node[state,accepting]   (f34)  [below of=Ff2-Ff2Ff14Ff26Ff37-f2-r-s2]  {$f34$};
+   \node[state,accepting]   (Ff14-Ff14Ff26Ff37-Ff2-Ff2Ff14Ff26Ff37-f14-f2-r-s14-s2)  [below of=f34]  {$Ff14-Ff14Ff26Ff37-Ff2-Ff2Ff14Ff26Ff37-f14-f2-r-s14-s2$};
+   \node[state,accepting]   (Ff26Ff37)  [below of=Ff14-Ff14Ff26Ff37-Ff2-Ff2Ff14Ff26Ff37-f14-f2-r-s14-s2]  {$Ff26Ff37$};
+   \node[state,accepting]   (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-f26-s26)  [below of=Ff26Ff37]  {$Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-f26-s26$};
+
+   \path  
+     (Ff14Ff26Ff37-Ff16-Ff26Ff37-Ff28-Ff2Ff14Ff26Ff37-Ff37-Ff4-f16-f19-f28-f31-f33-f37-f4-r-s16-s19-s21-s28-s31-s33-s34-s37-s4-s7)  edge  [loop above]  node {a}  (Ff14Ff26Ff37-Ff16-Ff26Ff37-Ff28-Ff2Ff14Ff26Ff37-Ff37-Ff4-f16-f19-f28-f31-f33-f37-f4-r-s16-s19-s21-s28-s31-s33-s34-s37-s4-s7)
+     (Ff14Ff26Ff37-Ff16-Ff26Ff37-Ff28-Ff2Ff14Ff26Ff37-Ff37-Ff4-f16-f19-f28-f31-f33-f37-f4-r-s16-s19-s21-s28-s31-s33-s34-s37-s4-s7)  edge  [bend left]    node {b}  (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss26-f21-f34-f7-r-s22-s26-s9)
+     (Ff4-f4-s4-s7)  edge  [loop above]  node {a}  (Ff4-f4-s4-s7)
+     (Ff4-f4-s4-s7)  edge  [bend right]    node {b}  (f7-s9)
+     (f21)  edge  [bend left]    node {a}  (Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-Ss14-f22-s14)
+     (f21)  edge  [bend right]    node {b}  (r)
+     (Ss37)  edge  [bend left]    node {a}  (Ff14Ff26Ff37-Ff26Ff37-Ff2Ff14Ff26Ff37-Ff37-f37-s37)
+     (Ss37)  edge  [bend right]    node {b}  (r)
+     (Ff14Ff26Ff37-Ff26Ff37-Ff2Ff14Ff26Ff37-Ff37-f37-s37)  edge  [loop above]  node {a}  (Ff14Ff26Ff37-Ff26Ff37-Ff2Ff14Ff26Ff37-Ff37-f37-s37)
+     (Ff14Ff26Ff37-Ff26Ff37-Ff2Ff14Ff26Ff37-Ff37-f37-s37)  edge  [bend left]    node {b}  (r)
+     (Ss4Ss16Ss28s39)  edge  [bend right]    node {a}  (Ff16-Ff28-Ff4-f16-f19-f28-f31-f39-f4-s16-s19-s21-s28-s31-s33-s4-s40-s7)
+     (Ss4Ss16Ss28s39)  edge  [bend left]    node {b}  (f7-s9)
+     (Ss16)  edge  [bend right]    node {a}  (s19)
+     (Ss16)  edge  [bend left]    node {a}  (s21)
+     (Ss16)  edge  [bend right]    node {a}  (f16)
+     (Ss16)  edge  [bend left]    node {a}  (Ff16)
+     (Ss16)  edge  [bend right]    node {a}  (f19)
+     (Ss16)  edge  [bend left]    node {a}  (s16)
+     (f39)  edge  [bend right]    node {a}  (Ff14Ff26Ff37-Ff26Ff37-Ff2Ff14Ff26Ff37-Ff37-Ss37-f40-s37)
+     (f39)  edge  [bend left]    node {b}  (r)
+     (s33)  edge  [bend right]    node {a}  (f33-s34)
+     (s33)  edge  [bend left]    node {b}  (r)
+     (s31)  edge  [bend right]    node {a}  (f31-s33)
+     (s31)  edge  [bend left]    node {b}  (r)
+     (Ff14Ff26Ff37)  edge  [bend right]    node {a}  (r)
+     (Ff14Ff26Ff37)  edge  [bend left]    node {b}  (r)
+     (Ff4)  edge  [bend right]    node {a}  (r)
+     (Ff4)  edge  [bend left]    node {b}  (f7-s9)
+     (f7-s9)  edge  [bend right]    node {a}  (f9-s10)
+     (f7-s9)  edge  [bend left]    node {b}  (r)
+     (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss26-f21-f34-f7-s22-s26-s9)  edge  [bend right]    node {a}  (Ff14-Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss14-f22-f26-f9-s10-s14-s26)
+     (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss26-f21-f34-f7-s22-s26-s9)  edge  [bend left]    node {b}  (r)
+     (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss26-f21-f34-f7-r-s22-s26-s9)  edge  [bend right]    node {a}  (Ff14-Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss14-f22-f26-f9-r-s10-s14-s26)
+     (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss26-f21-f34-f7-r-s22-s26-s9)  edge  [bend left]    node {b}  (r)
+     (Ss2)  edge  [bend right]    node {a}  (Ff2-Ff2Ff14Ff26Ff37-f2-s2)
+     (Ss2)  edge  [bend left]    node {b}  (r)
+     (Ff28)  edge  [bend right]    node {a}  (f31-s33)
+     (Ff28)  edge  [bend left]    node {b}  (r)
+     (f10)  edge  [bend right]    node {a}  (Ff2-Ff2Ff14Ff26Ff37-f2-s2)
+     (f10)  edge  [bend left]    node {b}  (r)
+     (Ff2-Ff2Ff14Ff26Ff37-f2-s2)  edge  [bend right]    node {a}  (Ff2-Ff2Ff14Ff26Ff37-f2-r-s2)
+     (Ff2-Ff2Ff14Ff26Ff37-f2-s2)  edge  [bend left]    node {b}  (r)
+     (f22)  edge  [bend right]    node {a}  (Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-f14-s14)
+     (f22)  edge  [bend left]    node {b}  (r)
+     (Ss28s39)  edge  [bend right]    node {a}  (s40)
+     (Ss28s39)  edge  [bend left]    node {a}  (f28)
+     (Ss28s39)  edge  [bend right]    node {a}  (f39)
+     (Ss28s39)  edge  [bend left]    node {a}  (f31)
+     (Ss28s39)  edge  [bend right]    node {a}  (s33)
+     (Ss28s39)  edge  [bend left]    node {a}  (s31)
+     (Ss28s39)  edge  [bend right]    node {a}  (Ff28)
+     (Ss28s39)  edge  [bend left]    node {a}  (s28)
+     (f31)  edge  [bend right]    node {a}  (f33-s34)
+     (f31)  edge  [bend left]    node {b}  (r)
+     (s26)  edge  [bend right]    node {a}  (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-f26-s26)
+     (s26)  edge  [bend left]    node {b}  (r)
+     (Ff14-Ff14Ff26Ff37-Ff2-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-f14-f2-f26-r-s14-s2-s26)  edge  [loop above]  node {a}  (Ff14-Ff14Ff26Ff37-Ff2-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-f14-f2-f26-r-s14-s2-s26)
+     (Ff14-Ff14Ff26Ff37-Ff2-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-f14-f2-f26-r-s14-s2-s26)  edge  [bend right]    node {b}  (r)
+     (Ff26)  edge  [bend left]    node {a}  (r)
+     (Ff26)  edge  [bend right]    node {b}  (r)
+     (Ss28)  edge  [bend left]    node {a}  (f28)
+     (Ss28)  edge  [bend right]    node {a}  (f31)
+     (Ss28)  edge  [bend left]    node {a}  (s33)
+     (Ss28)  edge  [bend right]    node {a}  (s31)
+     (Ss28)  edge  [bend left]    node {a}  (Ff28)
+     (Ss28)  edge  [bend right]    node {a}  (s28)
+     (s10)  edge  [bend left]    node {a}  (Ff2-Ff2Ff14Ff26Ff37-Ss2-f10-s2)
+     (s10)  edge  [bend right]    node {b}  (r)
+     (Ff37)  edge  [bend left]    node {a}  (r)
+     (Ff37)  edge  [bend right]    node {b}  (r)
+     (s9)  edge  [bend left]    node {a}  (f9-s10)
+     (s9)  edge  [bend right]    node {b}  (r)
+     (s4)  edge  [bend left]    node {a}  (Ff4-f4-s4-s7)
+     (s4)  edge  [bend right]    node {b}  (r)
+     (Ff16)  edge  [bend left]    node {a}  (f19-s21)
+     (Ff16)  edge  [bend right]    node {b}  (r)
+     (s40)  edge  [bend left]    node {a}  (Ff14Ff26Ff37-Ff26Ff37-Ff2Ff14Ff26Ff37-Ff37-Ss37-f40-s37)
+     (s40)  edge  [bend right]    node {b}  (r)
+     (Ff2)  edge  [bend left]    node {a}  (r)
+     (Ff2)  edge  [bend right]    node {b}  (r)
+     (Ss14)  edge  [bend left]    node {a}  (Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-f14-s14)
+     (Ss14)  edge  [bend right]    node {b}  (r)
+     (Ff2-Ff2Ff14Ff26Ff37-Ss2-f10-s2)  edge  [bend left]    node {a}  (Ff2-Ff2Ff14Ff26Ff37-f2-r-s2)
+     (Ff2-Ff2Ff14Ff26Ff37-Ss2-f10-s2)  edge  [bend right]    node {b}  (r)
+     (f21-s22)  edge  [bend left]    node {a}  (Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-Ss14-f22-s14)
+     (f21-s22)  edge  [bend right]    node {b}  (r)
+     (Ff28-f28-f31-f33-s28-s31-s33-s34)  edge  [bend left]    node {a}  (Ff28-f28-f31-f33-r-s28-s31-s33-s34)
+     (Ff28-f28-f31-f33-s28-s31-s33-s34)  edge  [bend right]    node {b}  (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss26-f34-r-s26)
+     (s19)  edge  [bend left]    node {a}  (f19-s21)
+     (s19)  edge  [bend right]    node {b}  (r)
+     (f9-s10)  edge  [bend left]    node {a}  (Ff2-Ff2Ff14Ff26Ff37-Ss2-f10-s2)
+     (f9-s10)  edge  [bend right]    node {b}  (r)
+     (f33)  edge  [bend left]    node {a}  (r)
+     (f33)  edge  [bend right]    node {b}  (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss26-f34-s26)
+     (f21-f7-s22-s9)  edge  [bend left]    node {a}  (Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-Ss14-f22-f9-s10-s14)
+     (f21-f7-s22-s9)  edge  [bend right]    node {b}  (r)
+     (s14)  edge  [bend left]    node {a}  (Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-f14-s14)
+     (s14)  edge  [bend right]    node {b}  (r)
+     (f26)  edge  [bend left]    node {a}  (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-f26-s26)
+     (f26)  edge  [bend right]    node {b}  (r)
+     (s39)  edge  [bend left]    node {a}  (s40)
+     (s39)  edge  [bend right]    node {a}  (f39)
+     (s34)  edge  [bend left]    node {a}  (r)
+     (s34)  edge  [bend right]    node {b}  (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss26-f34-s26)
+     (r)  edge  [loop above]  node {a}  (r)
+     (r)  edge  [loop above]  node {b}  (r)
+     (Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-Ss14-f22-f9-s10-s14)  edge  [bend left]    node {a}  (Ff14-Ff14Ff26Ff37-Ff2-Ff2Ff14Ff26Ff37-Ss2-f10-f14-r-s14-s2)
+     (Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-Ss14-f22-f9-s10-s14)  edge  [bend right]    node {b}  (r)
+     (f31-s33)  edge  [bend left]    node {a}  (f33-s34)
+     (f31-s33)  edge  [bend right]    node {b}  (r)
+     (Ff28-f28-f31-s28-s31-s33)  edge  [bend left]    node {a}  (Ff28-f28-f31-f33-s28-s31-s33-s34)
+     (Ff28-f28-f31-s28-s31-s33)  edge  [bend right]    node {b}  (r)
+     (Ff16-Ff28-Ff4-f16-f19-f28-f31-f39-f4-s16-s19-s21-s28-s31-s33-s4-s40-s7)  edge  [bend left]    node {a}  (Ff14Ff26Ff37-Ff16-Ff26Ff37-Ff28-Ff2Ff14Ff26Ff37-Ff37-Ff4-Ss37-f16-f19-f28-f31-f33-f4-f40-s16-s19-s21-s28-s31-s33-s34-s37-s4-s7)
+     (Ff16-Ff28-Ff4-f16-f19-f28-f31-f39-f4-s16-s19-s21-s28-s31-s33-s4-s40-s7)  edge  [bend right]    node {b}  (f21-f7-s22-s9)
+     (s22)  edge  [bend left]    node {a}  (Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-Ss14-f22-s14)
+     (s22)  edge  [bend right]    node {b}  (r)
+     (f37)  edge  [bend left]    node {a}  (Ff14Ff26Ff37-Ff26Ff37-Ff2Ff14Ff26Ff37-Ff37-f37-s37)
+     (f37)  edge  [bend right]    node {b}  (r)
+     (f14)  edge  [bend left]    node {a}  (Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-f14-s14)
+     (f14)  edge  [bend right]    node {b}  (r)
+     (Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-f14-r-s14)  edge  [loop above]  node {a}  (Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-f14-r-s14)
+     (Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-f14-r-s14)  edge  [bend left]    node {b}  (r)
+     (Ff14Ff26Ff37-Ff26Ff37-Ff2Ff14Ff26Ff37-Ff37-Ss37-f40-s37)  edge  [bend right]    node {a}  (Ff14Ff26Ff37-Ff26Ff37-Ff2Ff14Ff26Ff37-Ff37-f37-s37)
+     (Ff14Ff26Ff37-Ff26Ff37-Ff2Ff14Ff26Ff37-Ff37-Ss37-f40-s37)  edge  [bend left]    node {b}  (r)
+     (f19-s21)  edge  [bend right]    node {a}  (r)
+     (f19-s21)  edge  [bend left]    node {b}  (f21-s22)
+     (Ff16-f16-s16-s19)  edge  [bend right]    node {a}  (Ff16-f16-f19-s16-s19-s21)
+     (Ff16-f16-s16-s19)  edge  [bend left]    node {b}  (r)
+     (s2)  edge  [bend right]    node {a}  (Ff2-Ff2Ff14Ff26Ff37-f2-s2)
+     (s2)  edge  [bend left]    node {b}  (r)
+     (Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-f14-s14)  edge  [bend right]    node {a}  (Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-f14-r-s14)
+     (Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-f14-s14)  edge  [bend left]    node {b}  (r)
+     (f40)  edge  [bend right]    node {a}  (Ff14Ff26Ff37-Ff26Ff37-Ff2Ff14Ff26Ff37-Ff37-f37-s37)
+     (f40)  edge  [bend left]    node {b}  (r)
+     (f7)  edge  [bend right]    node {a}  (f9-s10)
+     (f7)  edge  [bend left]    node {b}  (r)
+     (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss26-f34-r-s26)  edge  [bend right]    node {a}  (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-f26-r-s26)
+     (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss26-f34-r-s26)  edge  [bend left]    node {b}  (r)
+     (f9)  edge  [bend right]    node {a}  (Ff2-Ff2Ff14Ff26Ff37-Ss2-f10-s2)
+     (f9)  edge  [bend left]    node {b}  (r)
+     (Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-Ss14-f22-r-s14)  edge  [bend right]    node {a}  (Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-f14-r-s14)
+     (Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-Ss14-f22-r-s14)  edge  [bend left]    node {b}  (r)
+     (f28)  edge  [bend right]    node {a}  (Ff28-f28-f31-s28-s31-s33)
+     (f28)  edge  [bend left]    node {b}  (r)
+     (s28)  edge  [bend right]    node {a}  (Ff28-f28-s28-s31)
+     (s28)  edge  [bend left]    node {b}  (r)
+     (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss26-f34-s26)  edge  [bend right]    node {a}  (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-f26-r-s26)
+     (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss26-f34-s26)  edge  [bend left]    node {b}  (r)
+     (f21-r-s22)  edge  [bend right]    node {a}  (Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-Ss14-f22-r-s14)
+     (f21-r-s22)  edge  [bend left]    node {b}  (r)
+     (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-f26-r-s26)  edge  [loop above]  node {a}  (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-f26-r-s26)
+     (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-f26-r-s26)  edge  [bend right]    node {b}  (r)
+     (Ss16Ss28s39)  edge  [bend left]    node {a}  (Ff16)
+     (Ss16Ss28s39)  edge  [bend right]    node {a}  (s40)
+     (Ss16Ss28s39)  edge  [bend left]    node {a}  (f28)
+     (Ss16Ss28s39)  edge  [bend right]    node {a}  (f39)
+     (Ss16Ss28s39)  edge  [bend left]    node {a}  (f31)
+     (Ss16Ss28s39)  edge  [bend right]    node {a}  (s31)
+     (Ss16Ss28s39)  edge  [bend left]    node {a}  (s33)
+     (Ss16Ss28s39)  edge  [bend right]    node {a}  (s28)
+     (Ss16Ss28s39)  edge  [bend left]    node {a}  (s19)
+     (Ss16Ss28s39)  edge  [bend right]    node {a}  (s21)
+     (Ss16Ss28s39)  edge  [bend left]    node {a}  (f16)
+     (Ss16Ss28s39)  edge  [bend right]    node {a}  (f19)
+     (Ss16Ss28s39)  edge  [bend left]    node {a}  (Ff28)
+     (Ss16Ss28s39)  edge  [bend right]    node {a}  (s16)
+     (Ff16-f16-f19-s16-s19-s21)  edge  [bend left]    node {a}  (Ff16-f16-f19-r-s16-s19-s21)
+     (Ff16-f16-f19-s16-s19-s21)  edge  [bend right]    node {b}  (f21-r-s22)
+     (Ff28-f28-f31-f33-r-s28-s31-s33-s34)  edge  [loop above]  node {a}  (Ff28-f28-f31-f33-r-s28-s31-s33-s34)
+     (Ff28-f28-f31-f33-r-s28-s31-s33-s34)  edge  [bend left]    node {b}  (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss26-f34-r-s26)
+     (s16)  edge  [bend right]    node {a}  (Ff16-f16-s16-s19)
+     (s16)  edge  [bend left]    node {b}  (r)
+     (Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-Ss14-f22-s14)  edge  [bend right]    node {a}  (Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-f14-r-s14)
+     (Ff14-Ff14Ff26Ff37-Ff2Ff14Ff26Ff37-Ss14-f22-s14)  edge  [bend left]    node {b}  (r)
+     (Ff14-Ff14Ff26Ff37-Ff2-Ff2Ff14Ff26Ff37-Ss2-f10-f14-r-s14-s2)  edge  [bend right]    node {a}  (Ff14-Ff14Ff26Ff37-Ff2-Ff2Ff14Ff26Ff37-f14-f2-r-s14-s2)
+     (Ff14-Ff14Ff26Ff37-Ff2-Ff2Ff14Ff26Ff37-Ss2-f10-f14-r-s14-s2)  edge  [bend left]    node {b}  (r)
+     (Ff14-Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss14-f22-f26-f9-s10-s14-s26)  edge  [bend right]    node {a}  (Ff14-Ff14Ff26Ff37-Ff2-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss2-f10-f14-f26-r-s14-s2-s26)
+     (Ff14-Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss14-f22-f26-f9-s10-s14-s26)  edge  [bend left]    node {b}  (r)
+     (s7)  edge  [bend right]    node {a}  (r)
+     (s7)  edge  [bend left]    node {b}  (f7-s9)
+     (Ff14Ff26Ff37-Ff16-Ff26Ff37-Ff28-Ff2Ff14Ff26Ff37-Ff37-Ff4-Ss37-f16-f19-f28-f31-f33-f4-f40-s16-s19-s21-s28-s31-s33-s34-s37-s4-s7)  edge  [bend right]    node {a}  (Ff14Ff26Ff37-Ff16-Ff26Ff37-Ff28-Ff2Ff14Ff26Ff37-Ff37-Ff4-f16-f19-f28-f31-f33-f37-f4-s16-s19-s21-s28-s31-s33-s34-s37-s4-s7)
+     (Ff14Ff26Ff37-Ff16-Ff26Ff37-Ff28-Ff2Ff14Ff26Ff37-Ff37-Ff4-Ss37-f16-f19-f28-f31-f33-f4-f40-s16-s19-s21-s28-s31-s33-s34-s37-s4-s7)  edge  [bend left]    node {b}  (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss26-f21-f34-f7-s22-s26-s9)
+     (Ff14-Ff14Ff26Ff37-Ff2-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss2-f10-f14-f26-r-s14-s2-s26)  edge  [bend right]    node {a}  (Ff14-Ff14Ff26Ff37-Ff2-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-f14-f2-f26-r-s14-s2-s26)
+     (Ff14-Ff14Ff26Ff37-Ff2-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss2-f10-f14-f26-r-s14-s2-s26)  edge  [bend left]    node {b}  (r)
+     (f33-s34)  edge  [bend right]    node {a}  (r)
+     (f33-s34)  edge  [bend left]    node {b}  (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss26-f34-s26)
+     (f16)  edge  [bend right]    node {a}  (Ff16-f16-f19-s16-s19-s21)
+     (f16)  edge  [bend left]    node {b}  (r)
+     (f2)  edge  [bend right]    node {a}  (Ff2-Ff2Ff14Ff26Ff37-f2-s2)
+     (f2)  edge  [bend left]    node {b}  (r)
+     (Ff14Ff26Ff37-Ff16-Ff26Ff37-Ff28-Ff2Ff14Ff26Ff37-Ff37-Ff4-f16-f19-f28-f31-f33-f37-f4-s16-s19-s21-s28-s31-s33-s34-s37-s4-s7)  edge  [bend right]    node {a}  (Ff14Ff26Ff37-Ff16-Ff26Ff37-Ff28-Ff2Ff14Ff26Ff37-Ff37-Ff4-f16-f19-f28-f31-f33-f37-f4-r-s16-s19-s21-s28-s31-s33-s34-s37-s4-s7)
+     (Ff14Ff26Ff37-Ff16-Ff26Ff37-Ff28-Ff2Ff14Ff26Ff37-Ff37-Ff4-f16-f19-f28-f31-f33-f37-f4-s16-s19-s21-s28-s31-s33-s34-s37-s4-s7)  edge  [bend left]    node {b}  (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss26-f21-f34-f7-r-s22-s26-s9)
+     (Ff14)  edge  [bend right]    node {a}  (r)
+     (Ff14)  edge  [bend left]    node {b}  (r)
+     (Ss4)  edge  [bend right]    node {a}  (Ff4)
+     (Ss4)  edge  [bend left]    node {a}  (s4)
+     (Ss4)  edge  [bend right]    node {a}  (f4)
+     (Ss4)  edge  [bend left]    node {a}  (s7)
+     (Ss4)  edge  [bend right]    node {b}  (s9)
+     (Ss4)  edge  [bend left]    node {b}  (f7)
+     (Ff16-f16-f19-r-s16-s19-s21)  edge  [loop above]  node {a}  (Ff16-f16-f19-r-s16-s19-s21)
+     (Ff16-f16-f19-r-s16-s19-s21)  edge  [bend right]    node {b}  (f21-r-s22)
+     (Ss26)  edge  [bend left]    node {a}  (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-f26-s26)
+     (Ss26)  edge  [bend right]    node {b}  (r)
+     (Ff2Ff14Ff26Ff37)  edge  [bend left]    node {a}  (r)
+     (Ff2Ff14Ff26Ff37)  edge  [bend right]    node {b}  (r)
+     (f4)  edge  [bend left]    node {a}  (Ff4-f4-s4-s7)
+     (f4)  edge  [bend right]    node {b}  (f7-s9)
+     (Ff14-Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss14-f22-f26-f9-r-s10-s14-s26)  edge  [bend left]    node {a}  (Ff14-Ff14Ff26Ff37-Ff2-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss2-f10-f14-f26-r-s14-s2-s26)
+     (Ff14-Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-Ss14-f22-f26-f9-r-s10-s14-s26)  edge  [bend right]    node {b}  (r)
+     (Ff2-Ff2Ff14Ff26Ff37-f2-r-s2)  edge  [loop above]  node {a}  (Ff2-Ff2Ff14Ff26Ff37-f2-r-s2)
+     (Ff2-Ff2Ff14Ff26Ff37-f2-r-s2)  edge  [bend left]    node {b}  (r)
+     (f34)  edge  [bend right]    node {a}  (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-f26-s26)
+     (f34)  edge  [bend left]    node {b}  (r)
+     (Ff14-Ff14Ff26Ff37-Ff2-Ff2Ff14Ff26Ff37-f14-f2-r-s14-s2)  edge  [loop above]  node {a}  (Ff14-Ff14Ff26Ff37-Ff2-Ff2Ff14Ff26Ff37-f14-f2-r-s14-s2)
+     (Ff14-Ff14Ff26Ff37-Ff2-Ff2Ff14Ff26Ff37-f14-f2-r-s14-s2)  edge  [bend right]    node {b}  (r)
+     (s37)  edge  [bend left]    node {a}  (Ff14Ff26Ff37-Ff26Ff37-Ff2Ff14Ff26Ff37-Ff37-f37-s37)
+     (s37)  edge  [bend right]    node {b}  (r)
+     (s21)  edge  [bend left]    node {a}  (r)
+     (s21)  edge  [bend right]    node {b}  (f21-s22)
+     (f19)  edge  [bend left]    node {a}  (r)
+     (f19)  edge  [bend right]    node {b}  (f21-s22)
+     (Ff26Ff37)  edge  [bend left]    node {a}  (r)
+     (Ff26Ff37)  edge  [bend right]    node {b}  (r)
+     (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-f26-s26)  edge  [bend left]    node {a}  (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-f26-r-s26)
+     (Ff14Ff26Ff37-Ff26-Ff26Ff37-Ff2Ff14Ff26Ff37-f26-s26)  edge  [bend right]    node {b}  (r)
+     (Ff28-f28-s28-s31)  edge  [bend left]    node {a}  (Ff28-f28-f31-s28-s31-s33)
+     (Ff28-f28-s28-s31)  edge  [bend right]    node {b}  (r);
+\end{tikzpicture}
+\end{document}

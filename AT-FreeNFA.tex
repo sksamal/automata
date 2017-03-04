@@ -1,0 +1,76 @@
+\documentclass{article}
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\usepackage[latin1]{}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{ssamal@cse.unl.edu}
+\lhead{CSCE828-Project1-AT-FreeNFA}
+\lfoot{\copyright Suraj Samal}
+\rfoot{\thepage}
+\begin{document}
+\title{CSCE828-Project1-ssamal@cse.unl.edu}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.8cm,semithick]
+   \tikzstyle{every state}=[fill=red,draw=blue,text=white]
+   \node[state,initial]   (011)        {$011$};
+   \node[state,initial]   (100)  [below of=011]  {$100$};
+   \node[state]   (q0)  [below of=100]  {$q0$};
+   \node[state]   (110)  [below of=q0]  {$110$};
+   \node[state]   (111)  [below of=110]  {$111$};
+
+   \path  
+     (011)  edge  [bend left]    node {B}  (100)
+     (011)  edge  [bend right]    node {B}  (111)
+     (011)  edge  [loop above]  node {C}  (011)
+     (011)  edge  [bend left]    node {C}  (100)
+     (011)  edge  [bend right]    node {S}  (111)
+     (011)  edge  [bend left]    node {Z}  (110)
+     (011)  edge  [bend right]    node {Z}  (111)
+     (011)  edge  [bend left]    node {\}  (100)
+     (011)  edge  [bend right]    node {\}  (111)
+     (011)  edge  [loop above]  node {/}  (011)
+     (011)  edge  [bend left]    node {/}  (100)
+     (011)  edge  [bend right]    node {/}  (110)
+     (011)  edge  [bend left]    node {/}  (111)
+     (q0)  edge  [bend right]    node {e}  (110)
+     (q0)  edge  [bend left]    node {e}  (111)
+     (100)  edge  [bend right]    node {B}  (011)
+     (100)  edge  [bend left]    node {B}  (110)
+     (100)  edge  [bend right]    node {S}  (110)
+     (100)  edge  [bend left]    node {S}  (111)
+     (100)  edge  [bend right]    node {C}  (110)
+     (100)  edge  [bend left]    node {C}  (111)
+     (100)  edge  [bend right]    node {I}  (111)
+     (100)  edge  [bend left]    node {Z}  (110)
+     (100)  edge  [bend right]    node {\}  (011)
+     (100)  edge  [loop above]  node {\}  (100)
+     (100)  edge  [bend left]    node {\}  (110)
+     (100)  edge  [bend right]    node {/}  (011)
+     (100)  edge  [bend left]    node {/}  (110)
+     (110)  edge  [bend right]    node {B}  (111)
+     (110)  edge  [loop above]  node {S}  (110)
+     (110)  edge  [bend left]    node {S}  (111)
+     (110)  edge  [bend right]    node {C}  (011)
+     (110)  edge  [bend left]    node {C}  (100)
+     (110)  edge  [bend right]    node {Z}  (011)
+     (110)  edge  [bend left]    node {\}  (011)
+     (110)  edge  [bend right]    node {\}  (100)
+     (110)  edge  [bend left]    node {/}  (011)
+     (110)  edge  [bend right]    node {/}  (100)
+     (110)  edge  [bend left]    node {/}  (111)
+     (111)  edge  [bend right]    node {B}  (011)
+     (111)  edge  [bend left]    node {B}  (110)
+     (111)  edge  [bend right]    node {C}  (110)
+     (111)  edge  [loop above]  node {C}  (111)
+     (111)  edge  [bend left]    node {S}  (100)
+     (111)  edge  [bend right]    node {Z}  (110)
+     (111)  edge  [loop above]  node {Z}  (111)
+     (111)  edge  [bend left]    node {\}  (011)
+     (111)  edge  [bend right]    node {\}  (100)
+     (111)  edge  [bend left]    node {\}  (110)
+     (111)  edge  [bend right]    node {/}  (011)
+     (111)  edge  [bend left]    node {/}  (110);
+\end{tikzpicture}
+\end{document}

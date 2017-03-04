@@ -1,0 +1,149 @@
+\documentclass{article}
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\usepackage[latin1]{}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{ssamal@cse.unl.edu}
+\lhead{CSCE828-Project1-DFA-RE-97}
+\lfoot{\copyright Suraj Samal}
+\rfoot{\thepage}
+\begin{document}
+\title{CSCE828-Project1-ssamal@cse.unl.edu}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.8cm,semithick]
+   \tikzstyle{every state}=[fill=red,draw=blue,text=white]
+   \node[state,initial]   (Ss2)        {$Ss2$};
+   \node[state]   (s4)  [below of=Ss2]  {$s4$};
+   \node[state]   (Ff8-f8-r-s13-s8)  [below of=s4]  {$Ff8-f8-r-s13-s8$};
+   \node[state]   (s16)  [below of=Ff8-f8-r-s13-s8]  {$s16$};
+   \node[state]   (s12)  [below of=s16]  {$s12$};
+   \node[state]   (Ff8-f8-s13-s8)  [below of=s12]  {$Ff8-f8-s13-s8$};
+   \node[state]   (Ss8)  [below of=Ff8-f8-s13-s8]  {$Ss8$};
+   \node[state]   (f2)  [below of=Ss8]  {$f2$};
+   \node[state]   (Ss10)  [below of=f2]  {$Ss10$};
+   \node[state]   (s6)  [below of=Ss10]  {$s6$};
+   \node[state]   (f10)  [below of=s6]  {$f10$};
+   \node[state]   (Ff8-Ss8-f12-s13-s8)  [below of=f10]  {$Ff8-Ss8-f12-s13-s8$};
+   \node[state]   (Ff2-f2-s2-s4)  [below of=Ff8-Ss8-f12-s13-s8]  {$Ff2-f2-s2-s4$};
+   \node[state]   (s13)  [below of=Ff2-f2-s2-s4]  {$s13$};
+   \node[state]   (Ff8)  [below of=s13]  {$Ff8$};
+   \node[state]   (s8)  [below of=Ff8]  {$s8$};
+   \node[state]   (f8)  [below of=s8]  {$f8$};
+   \node[state]   (Ff2)  [below of=f8]  {$Ff2$};
+   \node[state]   (Ff10-f10-s10-s12)  [below of=Ff2]  {$Ff10-f10-s10-s12$};
+   \node[state]   (s10)  [below of=Ff10-f10-s10-s12]  {$s10$};
+   \node[state]   (Ff10)  [below of=s10]  {$Ff10$};
+   \node[state]   (f12)  [below of=Ff10]  {$f12$};
+   \node[state]   (r)  [below of=f12]  {$r$};
+   \node[state]   (Ff8-Ss8-f12-r-s13-s8)  [below of=r]  {$Ff8-Ss8-f12-r-s13-s8$};
+   \node[state]   (s2)  [below of=Ff8-Ss8-f12-r-s13-s8]  {$s2$};
+   \node[state,accepting]   (Ff16-f16-s16)  [below of=s2]  {$Ff16-f16-s16$};
+   \node[state,accepting]   (f16)  [below of=Ff16-f16-s16]  {$f16$};
+   \node[state,accepting]   (FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-f10-f16-f6-s10-s12-s16-s6)  [below of=f16]  {$FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-f10-f16-f6-s10-s12-s16-s6$};
+   \node[state,accepting]   (Ff10-Ff16-f10-f16-s10-s12-s16)  [below of=FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-f10-f16-f6-s10-s12-s16-s6]  {$Ff10-Ff16-f10-f16-s10-s12-s16$};
+   \node[state,accepting]   (f4)  [below of=Ff10-Ff16-f10-f16-s10-s12-s16]  {$f4$};
+   \node[state,accepting]   (Ss6)  [below of=f4]  {$Ss6$};
+   \node[state,accepting]   (f6)  [below of=Ss6]  {$f6$};
+   \node[state,accepting]   (FFf6)  [below of=f6]  {$FFf6$};
+   \node[state,accepting]   (Ff6)  [below of=FFf6]  {$Ff6$};
+   \node[state,accepting]   (SSs10)  [below of=Ff6]  {$SSs10$};
+   \node[state,accepting]   (FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-Ss6-f13-s10-s12-s16-s6)  [below of=SSs10]  {$FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-Ss6-f13-s10-s12-s16-s6$};
+   \node[state,accepting]   (FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-Ss6-f13-r-s10-s12-s16-s6)  [below of=FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-Ss6-f13-s10-s12-s16-s6]  {$FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-Ss6-f13-r-s10-s12-s16-s6$};
+   \node[state,accepting]   (Ss16)  [below of=FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-Ss6-f13-r-s10-s12-s16-s6]  {$Ss16$};
+   \node[state,accepting]   (f13)  [below of=Ss16]  {$f13$};
+   \node[state,accepting]   (FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-f6-s10-s12-s16-s6)  [below of=f13]  {$FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-f6-s10-s12-s16-s6$};
+   \node[state,accepting]   (FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-f10-f16-f6-r-s10-s12-s16-s6)  [below of=FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-f6-s10-s12-s16-s6]  {$FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-f10-f16-f6-r-s10-s12-s16-s6$};
+   \node[state,accepting]   (FFf6-Ff10-Ff16-SSs10-Ss10-Ss16-f4-s10-s12-s16)  [below of=FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-f10-f16-f6-r-s10-s12-s16-s6]  {$FFf6-Ff10-Ff16-SSs10-Ss10-Ss16-f4-s10-s12-s16$};
+   \node[state,accepting]   (Ff16)  [below of=FFf6-Ff10-Ff16-SSs10-Ss10-Ss16-f4-s10-s12-s16]  {$Ff16$};
+
+   \path  
+     (Ff16-f16-s16)  edge  [loop above]  node {a}  (Ff16-f16-s16)
+     (Ff16-f16-s16)  edge  [bend left]    node {b}  (r)
+     (s4)  edge  [bend right]    node {a}  (r)
+     (s4)  edge  [bend left]    node {b}  (FFf6-Ff10-Ff16-SSs10-Ss10-Ss16-f4-s10-s12-s16)
+     (f16)  edge  [bend right]    node {a}  (Ff16-f16-s16)
+     (f16)  edge  [bend left]    node {b}  (r)
+     (FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-f10-f16-f6-s10-s12-s16-s6)  edge  [bend right]    node {a}  (FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-f10-f16-f6-r-s10-s12-s16-s6)
+     (FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-f10-f16-f6-s10-s12-s16-s6)  edge  [bend left]    node {b}  (Ff8-Ss8-f12-r-s13-s8)
+     (Ff10-Ff16-f10-f16-s10-s12-s16)  edge  [loop above]  node {a}  (Ff10-Ff16-f10-f16-s10-s12-s16)
+     (Ff10-Ff16-f10-f16-s10-s12-s16)  edge  [bend right]    node {b}  (Ff8-Ss8-f12-s13-s8)
+     (Ff8-f8-r-s13-s8)  edge  [loop above]  node {a}  (Ff8-f8-r-s13-s8)
+     (Ff8-f8-r-s13-s8)  edge  [bend left]    node {b}  (FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-Ss6-f13-r-s10-s12-s16-s6)
+     (f4)  edge  [bend right]    node {a}  (Ff10-Ff16-f10-f16-s10-s12-s16)
+     (f4)  edge  [bend left]    node {b}  (Ff8-Ss8-f12-s13-s8)
+     (s16)  edge  [bend right]    node {a}  (Ff16-f16-s16)
+     (s16)  edge  [bend left]    node {b}  (r)
+     (f6)  edge  [bend right]    node {a}  (FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-f10-f16-f6-s10-s12-s16-s6)
+     (f6)  edge  [bend left]    node {b}  (Ff8-Ss8-f12-s13-s8)
+     (Ss6)  edge  [bend right]    node {a}  (FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-f10-f16-f6-s10-s12-s16-s6)
+     (Ss6)  edge  [bend left]    node {b}  (Ff8-Ss8-f12-s13-s8)
+     (FFf6)  edge  [bend right]    node {a}  (Ff16-f16-s16)
+     (FFf6)  edge  [bend left]    node {b}  (r)
+     (s12)  edge  [bend right]    node {a}  (r)
+     (s12)  edge  [bend left]    node {b}  (Ff8-Ss8-f12-s13-s8)
+     (Ff8-f8-s13-s8)  edge  [loop above]  node {a}  (Ff8-f8-s13-s8)
+     (Ff8-f8-s13-s8)  edge  [bend right]    node {b}  (FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-Ss6-f13-s10-s12-s16-s6)
+     (Ss8)  edge  [bend left]    node {a}  (Ff8-f8-s13-s8)
+     (Ss8)  edge  [bend right]    node {b}  (FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-Ss6-f13-s10-s12-s16-s6)
+     (Ff6)  edge  [bend left]    node {a}  (Ff10-Ff16-f10-f16-s10-s12-s16)
+     (Ff6)  edge  [bend right]    node {b}  (Ff8-Ss8-f12-s13-s8)
+     (SSs10)  edge  [bend left]    node {a}  (Ff10-Ff16-f10-f16-s10-s12-s16)
+     (SSs10)  edge  [bend right]    node {b}  (Ff8-Ss8-f12-s13-s8)
+     (FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-Ss6-f13-s10-s12-s16-s6)  edge  [bend left]    node {a}  (FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-f10-f16-f6-r-s10-s12-s16-s6)
+     (FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-Ss6-f13-s10-s12-s16-s6)  edge  [bend right]    node {b}  (Ff8-Ss8-f12-r-s13-s8)
+     (f2)  edge  [bend left]    node {a}  (Ff2-f2-s2-s4)
+     (f2)  edge  [bend right]    node {b}  (FFf6-Ff10-Ff16-SSs10-Ss10-Ss16-f4-s10-s12-s16)
+     (Ss10)  edge  [bend left]    node {a}  (Ff10-f10-s10-s12)
+     (Ss10)  edge  [bend right]    node {b}  (Ff8-Ss8-f12-s13-s8)
+     (s6)  edge  [bend left]    node {a}  (FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-f6-s10-s12-s16-s6)
+     (s6)  edge  [bend right]    node {b}  (r)
+     (FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-Ss6-f13-r-s10-s12-s16-s6)  edge  [bend left]    node {a}  (FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-f10-f16-f6-r-s10-s12-s16-s6)
+     (FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-Ss6-f13-r-s10-s12-s16-s6)  edge  [bend right]    node {b}  (Ff8-Ss8-f12-r-s13-s8)
+     (f10)  edge  [bend left]    node {a}  (Ff10-f10-s10-s12)
+     (f10)  edge  [bend right]    node {b}  (Ff8-Ss8-f12-s13-s8)
+     (Ff8-Ss8-f12-s13-s8)  edge  [bend left]    node {a}  (Ff8-f8-s13-s8)
+     (Ff8-Ss8-f12-s13-s8)  edge  [bend right]    node {b}  (FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-Ss6-f13-s10-s12-s16-s6)
+     (s13)  edge  [bend left]    node {a}  (r)
+     (s13)  edge  [bend right]    node {b}  (FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-Ss6-f13-s10-s12-s16-s6)
+     (Ss16)  edge  [bend left]    node {a}  (Ff16-f16-s16)
+     (Ss16)  edge  [bend right]    node {b}  (r)
+     (Ff2-f2-s2-s4)  edge  [loop above]  node {a}  (Ff2-f2-s2-s4)
+     (Ff2-f2-s2-s4)  edge  [bend left]    node {b}  (FFf6-Ff10-Ff16-SSs10-Ss10-Ss16-f4-s10-s12-s16)
+     (Ff8)  edge  [bend right]    node {a}  (r)
+     (Ff8)  edge  [bend left]    node {b}  (FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-Ss6-f13-s10-s12-s16-s6)
+     (Ss2)  edge  [bend right]    node {a}  (Ff2-f2-s2-s4)
+     (Ss2)  edge  [bend left]    node {b}  (FFf6-Ff10-Ff16-SSs10-Ss10-Ss16-f4-s10-s12-s16)
+     (s8)  edge  [bend right]    node {a}  (Ff8-f8-s13-s8)
+     (s8)  edge  [bend left]    node {b}  (r)
+     (f8)  edge  [bend right]    node {a}  (Ff8-f8-s13-s8)
+     (f8)  edge  [bend left]    node {b}  (FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-Ss6-f13-s10-s12-s16-s6)
+     (Ff2)  edge  [bend right]    node {a}  (r)
+     (Ff2)  edge  [bend left]    node {b}  (FFf6-Ff10-Ff16-SSs10-Ss10-Ss16-f4-s10-s12-s16)
+     (Ff10-f10-s10-s12)  edge  [loop above]  node {a}  (Ff10-f10-s10-s12)
+     (Ff10-f10-s10-s12)  edge  [bend right]    node {b}  (Ff8-Ss8-f12-s13-s8)
+     (s10)  edge  [bend left]    node {a}  (Ff10-f10-s10-s12)
+     (s10)  edge  [bend right]    node {b}  (r)
+     (f13)  edge  [bend left]    node {a}  (FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-f10-f16-f6-s10-s12-s16-s6)
+     (f13)  edge  [bend right]    node {b}  (Ff8-Ss8-f12-s13-s8)
+     (FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-f6-s10-s12-s16-s6)  edge  [bend left]    node {a}  (FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-f10-f16-f6-r-s10-s12-s16-s6)
+     (FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-f6-s10-s12-s16-s6)  edge  [bend right]    node {b}  (Ff8-Ss8-f12-r-s13-s8)
+     (Ff10)  edge  [bend left]    node {a}  (r)
+     (Ff10)  edge  [bend right]    node {b}  (Ff8-Ss8-f12-s13-s8)
+     (FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-f10-f16-f6-r-s10-s12-s16-s6)  edge  [loop above]  node {a}  (FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-f10-f16-f6-r-s10-s12-s16-s6)
+     (FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-f10-f16-f6-r-s10-s12-s16-s6)  edge  [bend left]    node {b}  (Ff8-Ss8-f12-r-s13-s8)
+     (f12)  edge  [bend right]    node {a}  (Ff8-f8-s13-s8)
+     (f12)  edge  [bend left]    node {b}  (FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-Ss6-f13-s10-s12-s16-s6)
+     (r)  edge  [loop above]  node {a}  (r)
+     (r)  edge  [loop above]  node {b}  (r)
+     (FFf6-Ff10-Ff16-SSs10-Ss10-Ss16-f4-s10-s12-s16)  edge  [bend right]    node {a}  (Ff10-Ff16-f10-f16-s10-s12-s16)
+     (FFf6-Ff10-Ff16-SSs10-Ss10-Ss16-f4-s10-s12-s16)  edge  [bend left]    node {b}  (Ff8-Ss8-f12-s13-s8)
+     (Ff16)  edge  [bend right]    node {a}  (r)
+     (Ff16)  edge  [bend left]    node {b}  (r)
+     (Ff8-Ss8-f12-r-s13-s8)  edge  [bend right]    node {a}  (Ff8-f8-r-s13-s8)
+     (Ff8-Ss8-f12-r-s13-s8)  edge  [bend left]    node {b}  (FFf6-Ff10-Ff16-Ff6-Ss10-Ss16-Ss6-f13-r-s10-s12-s16-s6)
+     (s2)  edge  [bend right]    node {a}  (Ff2-f2-s2-s4)
+     (s2)  edge  [bend left]    node {b}  (r);
+\end{tikzpicture}
+\end{document}

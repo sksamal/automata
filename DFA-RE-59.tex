@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\usepackage[latin1]{}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{ssamal@cse.unl.edu}
+\lhead{CSCE828-Project1-DFA-RE-59}
+\lfoot{\copyright Suraj Samal}
+\rfoot{\thepage}
+\begin{document}
+\title{CSCE828-Project1-ssamal@cse.unl.edu}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.8cm,semithick]
+   \tikzstyle{every state}=[fill=red,draw=blue,text=white]
+   \node[state,initial,accepting]   (s1Ss3)        {$s1Ss3$};
+   \node[state]   (r)  [below of=s1Ss3]  {$r$};
+   \node[state]   (s3)  [below of=r]  {$s3$};
+   \node[state,accepting]   (f1)  [below of=s3]  {$f1$};
+   \node[state,accepting]   (f1Ff3)  [below of=f1]  {$f1Ff3$};
+   \node[state,accepting]   (Ff3-f1Ff3-f3-s3)  [below of=f1Ff3]  {$Ff3-f1Ff3-f3-s3$};
+   \node[state,accepting]   (f1-f1Ff3)  [below of=Ff3-f1Ff3-f3-s3]  {$f1-f1Ff3$};
+   \node[state,accepting]   (Ff3)  [below of=f1-f1Ff3]  {$Ff3$};
+   \node[state,accepting]   (f3)  [below of=Ff3]  {$f3$};
+
+   \path  
+     (f1)  edge  [bend left]    node {a}  (r)
+     (f1)  edge  [bend right]    node {b}  (r)
+     (Ff3-f1Ff3-f3-s3)  edge  [bend left]    node {a}  (r)
+     (Ff3-f1Ff3-f3-s3)  edge  [loop above]  node {b}  (Ff3-f1Ff3-f3-s3)
+     (f1Ff3)  edge  [bend right]    node {a}  (r)
+     (f1Ff3)  edge  [bend left]    node {b}  (r)
+     (r)  edge  [loop above]  node {a}  (r)
+     (r)  edge  [loop above]  node {b}  (r)
+     (s1)  edge  [bend right]    node {a}  (f1)
+     (s1)  edge  [bend left]    node {a}  (f1Ff3)
+     (f1-f1Ff3)  edge  [bend right]    node {a}  (r)
+     (f1-f1Ff3)  edge  [bend left]    node {b}  (r)
+     (Ff3)  edge  [bend right]    node {a}  (r)
+     (Ff3)  edge  [bend left]    node {b}  (r)
+     (s1Ss3)  edge  [bend right]    node {a}  (f1-f1Ff3)
+     (s1Ss3)  edge  [bend left]    node {b}  (Ff3-f1Ff3-f3-s3)
+     (s3)  edge  [bend right]    node {a}  (r)
+     (s3)  edge  [bend left]    node {b}  (Ff3-f1Ff3-f3-s3)
+     (f3)  edge  [bend right]    node {a}  (r)
+     (f3)  edge  [bend left]    node {b}  (Ff3-f1Ff3-f3-s3)
+     (Ss3)  edge  [bend right]    node {b}  (f1Ff3)
+     (Ss3)  edge  [bend left]    node {b}  (Ff3)
+     (Ss3)  edge  [bend right]    node {b}  (s3)
+     (Ss3)  edge  [bend left]    node {b}  (f3);
+\end{tikzpicture}
+\end{document}
