@@ -96,12 +96,12 @@ public class NonDeterFiniteAutomata extends FiniteAutomata {
 		return false;
 	}
 
-	public List<State> processandFinal(List<Symbol<String>> input) {
+	public Set<State> processandFinal(List<Symbol<String>> input) {
 
 	/* Get the start state */
 	List<State> nextStates = new ArrayList<State>();
 	nextStates.add(states.getInitial());
-	List<State> finalStates = new ArrayList<State>();
+	Set<State> finalStates = new HashSet<State>();
 	
 	/* If input is null, means a null string */
 	if(input.size()==0) 
@@ -110,7 +110,8 @@ public class NonDeterFiniteAutomata extends FiniteAutomata {
 	/* Validate inputs */
 	if(!validate(input)) {
 		System.out.println("Invalid symbols in the input!. Cannot proceed");
-		return finalStates;
+	//	return false;
+				return finalStates;
 	}
 	
 	/* Process Transitions */
@@ -131,12 +132,15 @@ public class NonDeterFiniteAutomata extends FiniteAutomata {
 				tempStates.addAll(transitions.get(st, s).getStates());
 			
 		}
+//		System.out.println("State: " + nextStates + " symbol: " + s + " Next: " + tempStates);
 		nextStates = tempStates;
 	}
 
 	/* After the processing of input check if we reached a final state */
 	for (State st : nextStates)
 		if (st.isFinal()) finalStates.add(st);
+	
+	if(finalStates.size()==0) finalStates.addAll(nextStates);
 	
 	return finalStates;
 }

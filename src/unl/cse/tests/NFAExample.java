@@ -1,6 +1,7 @@
 package unl.cse.tests;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -29,7 +30,14 @@ public class NFAExample {
 		while(sc.hasNext()) {
 			transitions+=(semi + sc.nextLine());
 		}
-		sc.close();
+		
+		Scanner sc1 = new Scanner(new File(args[1]));
+		String[] inputs1 = new String[Integer.parseInt(sc1.nextLine())];
+		int i=0;
+		while(sc1.hasNext()) {
+			inputs1[i++]=(sc1.nextLine());
+		}
+		sc1.close(); sc.close();
 		TransitionTable<String> tTable31 = Generator.getTransitionTable(states31,transitions,semi,ssep,csep);
 		NonDeterFiniteAutomata nfa31 = new NonDeterFiniteAutomata(states31,symbols3,tTable31,nfaLabel, new Symbol<String>(epsilon));
 //		nfa31.exportAsPDF(nfaLabel);
@@ -42,16 +50,73 @@ public class NFAExample {
 		System.out.println("Name:dfa33 States:" + dfa33.getStates());
 		System.out.println("Transitions:" + dfa33.getTransitions());
 		
-		/* Process strings */
-		String[] inputs1 = {"ZSZSZS","Z*BBBBB","ZBXSBS/","ZBXS","ZB\\/\\/\\/BB\\\\\\BBB","XS*XS","SSSSSSS", "SS"};
+//		/* Process strings */
+//		String[] inputs1 = {"ZS\\ZS\\Z","Z*S/Z\\S/Z","ZB//X\\SBS/","ZBXS","ZBBBBB","XS////\\\\*XS","Z*Z*ZZ", "SSSS"};
 		for (String in : inputs1) {
+			in = in.trim();
 			List<Symbol<String>> symbolList = Generator.getSymbols(in);		
-			System.out.println("Processing " + in + ": " + nfa31.processandFinal(symbolList));			
+			if(!nfa31.process(symbolList)) 
+			{ System.out.printf("Processing : '%-20s : %d     : %-100s\n",in+"'", in.length(), nfa31.processandFinal(symbolList));}
 		}
-		
-			}
+	
+//		generate(nfa31);
+		}
 		catch (Exception e) {
 			e.printStackTrace();
+		}
+	}
+	
+	public static void generate(NonDeterFiniteAutomata nfa) {
+		ArrayList<Symbol<String>> sarray = new ArrayList<Symbol<String>>(nfa.getSymbols().getSymbols());
+		int index=0;
+		for(int i=0;i<sarray.size();i++)
+			if(sarray.get(i).getValue().equalsIgnoreCase("e")) index = i;
+		sarray.remove(index);
+		String input="";
+		System.out.printf("Processing : %-21s : Length : %-100s\n","Input", "Final State(s)");
+
+		for(int i=0;i<30;) {
+			Symbol<String> prevsymbol = null; //sarray.get((int)(Math.random()*sarray.size()));
+			input = ""; //prevsymbol.getValue().trim();
+			int length = (int) (Math.random()*15) + 3;
+
+			Symbol<String> nextsymbol = null;
+			while (length > 0) {
+			if(nextsymbol == null)
+				nextsymbol = new Symbol<String>(sarray.get((int)(Math.random()*sarray.size())).getValue().trim());
+			
+			Symbol<String> next2symbol = null;
+			if(length>1) 
+				next2symbol = new Symbol<String>(sarray.get((int)(Math.random()*sarray.size())).getValue().trim());
+			
+//			System.out.println("i=" + i + " length=" + length + " prev="+prevsymbol + " next=" + nextsymbol + " next2=" + next2symbol);
+			if((next2symbol!=null) && ((next2symbol.getValue().equalsIgnoreCase("e")) || ((nextsymbol.getValue().equalsIgnoreCase("Z") && next2symbol.getValue().equalsIgnoreCase("S")) ||
+					(nextsymbol.getValue().equalsIgnoreCase("S") && next2symbol.getValue().equalsIgnoreCase("Z")))))
+				continue;
+			length--;
+
+			if(next2symbol!=null && prevsymbol!=null)
+			if(prevsymbol.getValue().equalsIgnoreCase("/") && nextsymbol.getValue().equalsIgnoreCase("Z") &&
+					next2symbol.getValue().equalsIgnoreCase("/"))
+				nextsymbol.setValue("/");
+			
+			if(next2symbol!=null && prevsymbol!=null)
+			if(prevsymbol.getValue().equalsIgnoreCase("\\") && nextsymbol.getValue().equalsIgnoreCase("S") &&
+							next2symbol.getValue().equalsIgnoreCase("\\"))
+				nextsymbol.setValue("\\");
+			
+			input = input + nextsymbol.getValue().trim();
+			prevsymbol = nextsymbol;
+			nextsymbol = next2symbol;
+		}
+//		System.out.println("Input generated: " + inputs[i]);
+		List<Symbol<String>> symbolList = Generator.getSymbols(input);		
+		if(!nfa.process(symbolList)) 
+	//		{ System.out.printf("Processing : '%-20s : %d     : %-100s\n",input+"'", input.length(), nfa.processandFinal(symbolList)); i++;}
+//		else
+//			System.out.println("Processing " + input + ": " + nfa31.processandFinal(symbolList));			
+		{ System.out.printf("%-20s\n",input); i++;}
+//		else
 		}
 	}
 }

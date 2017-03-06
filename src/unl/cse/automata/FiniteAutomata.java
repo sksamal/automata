@@ -86,7 +86,7 @@ public abstract class FiniteAutomata implements Automata {
 	public boolean validate(List<Symbol<String>> sList) {
 		for(Symbol<String> s: sList)
 			if(this.symbols.find(s)==null)
-				return false;
+				{ System.out.println("s="+s); return false;}
 			return true;
 	}
 	
