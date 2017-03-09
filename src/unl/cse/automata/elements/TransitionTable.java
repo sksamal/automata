@@ -85,6 +85,15 @@ public class TransitionTable<T> {
     	
 	}
 	
+	public String sString() {
+		String out = "Transition Table:\n";
+		for(Transition<T> t: getAll()) {    		
+    			out+="  " + t.getSrc().toString() + " " + t.getSymbol().toString() + " " + t.getDests().getStates() + "\n";
+    		}
+		return out;
+    	
+	}
+	
 	public List<Transition<T>> getAll() {
 		
 		List<Transition<T>> tList= new ArrayList<Transition<T>>();
@@ -100,7 +109,10 @@ public class TransitionTable<T> {
 	}
 	
 	public int size() {
-		return this.transitions.size();
+		int size=0;
+		for(State s: transitions.keySet())
+			size+=transitions.get(s).size();
+		return size;
 	}
 
 }

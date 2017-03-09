@@ -14,6 +14,7 @@ import unl.cse.automata.elements.TransitionTable;
 
 public class NFAExample {
 
+	public static String inpsep = "";
 	public static void main(String args[]) {
 
 		try {
@@ -25,7 +26,8 @@ public class NFAExample {
 		String epsilon = sc.next().trim();
 		String ssep = sc.next().trim();
 		String csep = sc.next().trim();
-		String semi = ";";
+		inpsep = sc.next().trim();
+		String semi = ";";		
 		String transitions = sc.nextLine().trim();
 		while(sc.hasNext()) {
 			transitions+=(semi + sc.nextLine());
@@ -41,44 +43,63 @@ public class NFAExample {
 		TransitionTable<String> tTable31 = Generator.getTransitionTable(states31,transitions,semi,ssep,csep);
 		NonDeterFiniteAutomata nfa31 = new NonDeterFiniteAutomata(states31,symbols3,tTable31,nfaLabel, new Symbol<String>(epsilon));
 //		nfa31.exportAsPDF(nfaLabel);
+		System.out.println("NFA NoOfStates:" +  nfa31.getStates().size());
+		System.out.println("NFA NoOfTransitions:" + nfa31.getTransitions().size());
 		/*Print the transition table*/ 
-		System.out.println("Stateset=" + states31);
-		System.out.println(nfa31.getTransitions());
+		System.out.println(states31);
+		System.out.println(nfa31.getTransitions().sString());
 		
 		DeterFiniteAutomata dfa33 = nfa31.convertToDFA();
-		System.out.println("Name:dfa33 NoOfStates:" + dfa33.getStates().size());
-		System.out.println("Name:dfa33 States:" + dfa33.getStates());
-		System.out.println("Transitions:" + dfa33.getTransitions());
+		System.out.println("DFA: NoOfStates:" + dfa33.getStates().size());
+		System.out.println("DFA: NoOfTransitions:" + dfa33.getTransitions().size());
+		System.out.println("DFA: States:" + dfa33.getStates());
+		System.out.println("DFA: Transitions:" + dfa33.getTransitions().sString());
 		
-//		/* Process strings */
-//		String[] inputs1 = {"ZS\\ZS\\Z","Z*S/Z\\S/Z","ZB//X\\SBS/","ZBXS","ZBBBBB","XS////\\\\*XS","Z*Z*ZZ", "SSSS"};
-		for (String in : inputs1) {
-			in = in.trim();
-			List<Symbol<String>> symbolList = Generator.getSymbols(in);		
-			if(!nfa31.process(symbolList)) 
-			{ System.out.printf("Processing : '%-20s : %d     : %-100s\n",in+"'", in.length(), nfa31.processandFinal(symbolList));}
-		}
-	
-//		generate(nfa31);
+		process(nfa31,inputs1);
+		
+//		generate(nfa31, (args.length>2)?Integer.parseInt(args[2]):10, (args.length>2)?Integer.parseInt(args[3]):0);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public static void generate(NonDeterFiniteAutomata nfa) {
+	public static void process(NonDeterFiniteAutomata nfa, String[] inputs) {
+		/* Process strings */
+//		String[] inputs1 = {"ZS\\ZS\\Z","Z*S/Z\\S/Z","ZB//X\\SBS/","ZBXS","ZBBBBB","XS////\\\\*XS","Z*Z*ZZ", "SSSS"};
+		ArrayList<String> accepted = new ArrayList<String>();
+		System.out.println("Rejected:");
+		for (String in : inputs) {
+			in = in.trim();
+			List<Symbol<String>> symbolList = Generator.getSymbols(in,inpsep);		
+			if(!nfa.process(symbolList)) 
+			{ System.out.printf("\tProcessing : '%-40s : %d     : %-100s\n",in+"'", symbolList.size(), nfa.processandFinal(symbolList));}
+			else
+			accepted.add(String.format("\tProcessing : '%-40s : %d     : %-100s\n",in + "'", symbolList.size(), nfa.processandFinal(symbolList)));			
+
+		}
+	
+		System.out.println("Accepted:");
+		for(String out: accepted)
+			System.out.print(out);
+	}
+	
+	public static void generate(NonDeterFiniteAutomata nfa, int num, int size) {
 		ArrayList<Symbol<String>> sarray = new ArrayList<Symbol<String>>(nfa.getSymbols().getSymbols());
 		int index=0;
+		if(size==0) size=3;
 		for(int i=0;i<sarray.size();i++)
 			if(sarray.get(i).getValue().equalsIgnoreCase("e")) index = i;
 		sarray.remove(index);
 		String input="";
-		System.out.printf("Processing : %-21s : Length : %-100s\n","Input", "Final State(s)");
+//		System.out.printf("Processing : %-21s : Length : %-100s\n","Input", "Final State(s)");
 
-		for(int i=0;i<30;) {
+		System.out.println("Rejected of length " + size + ":");
+
+		for(int i=0;i<num;) {
 			Symbol<String> prevsymbol = null; //sarray.get((int)(Math.random()*sarray.size()));
 			input = ""; //prevsymbol.getValue().trim();
-			int length = (int) (Math.random()*15) + 3;
+			int length = (int) (Math.random()*(size-3)) + 3;
 
 			Symbol<String> nextsymbol = null;
 			while (length > 0) {
@@ -105,18 +126,18 @@ public class NFAExample {
 							next2symbol.getValue().equalsIgnoreCase("\\"))
 				nextsymbol.setValue("\\");
 			
-			input = input + nextsymbol.getValue().trim();
+			input = input + inpsep + nextsymbol.getValue().trim();
 			prevsymbol = nextsymbol;
 			nextsymbol = next2symbol;
 		}
-//		System.out.println("Input generated: " + inputs[i]);
-		List<Symbol<String>> symbolList = Generator.getSymbols(input);		
+//		System.out.println("Input generated: " + input);
+		List<Symbol<String>> symbolList = Generator.getSymbols(input,inpsep);		
 		if(!nfa.process(symbolList)) 
 	//		{ System.out.printf("Processing : '%-20s : %d     : %-100s\n",input+"'", input.length(), nfa.processandFinal(symbolList)); i++;}
 //		else
 //			System.out.println("Processing " + input + ": " + nfa31.processandFinal(symbolList));			
 		{ System.out.printf("%-20s\n",input); i++;}
-//		else
+		//else
 		}
 	}
 }

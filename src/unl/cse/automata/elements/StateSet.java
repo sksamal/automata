@@ -91,7 +91,7 @@ public class StateSet {
 	public String toString() {
 		String out = " StateSet: [ ";
 		for(State st : this.states)
-				out +=st + " ";
+				out +=st + "\n ";
 	    return out + "]";
 	}
 	
