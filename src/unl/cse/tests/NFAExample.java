@@ -1,7 +1,12 @@
 package unl.cse.tests;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
@@ -57,70 +62,88 @@ public class NFAExample {
 		System.out.println("DFA: States:" + dfa33.getStates());
 		System.out.println("DFA: Transitions:" + dfa33.getTransitions().sString());
 		
-//		process(nfa31,inputs1);
+		process(nfa31,inputs1);
 		
-		generate(nfa31, (args.length>2)?Integer.parseInt(args[2]):10, (args.length>2)?Integer.parseInt(args[3]):0);
+//		generate(nfa31, (args.length>2)?Integer.parseInt(args[2]):10, (args.length>2)?Integer.parseInt(args[3]):0);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public static void process(NonDeterFiniteAutomata nfa, String[] inputs) {
+	public static void process(NonDeterFiniteAutomata nfa, String[] inputs) throws IOException {
 		/* Process strings */
 //		String[] inputs1 = {"ZS\\ZS\\Z","Z*S/Z\\S/Z","ZB//X\\SBS/","ZBXS","ZBBBBB","XS////\\\\*XS","Z*Z*ZZ", "SSSS"};
 		ArrayList<String> accepted = new ArrayList<String>();
+		PrintWriter pw = new PrintWriter(new FileWriter("output"));
 		System.out.println("Rejected:");
+		pw.println("Rejected:");
 		for (String in : inputs) {
 			in = in.trim();
 			List<Symbol<String>> symbolList = Generator.getSymbols(in);		
 			if(!nfa.process(symbolList)) 
-			{ System.out.printf("\tProcessing : '%-40s : %d     : %-100s\n",in+"'", symbolList.size(), nfa.processandFinal(symbolList));}
+			{ System.out.printf("\tProcessing : '%-40s : %d     : %-100s\n",in+"'", (symbolList.size()-1)/2, nfa.processandFinal(symbolList));
+			pw.printf("\tProcessing : '%-40s : %d     : %-100s\n",in+"'", (symbolList.size()-1)/2, nfa.processandFinal(symbolList));}
 			else
-			accepted.add(String.format("\tProcessing : '%-40s : %d     : %-100s\n",in + "'", symbolList.size(), nfa.processandFinal(symbolList)));			
+			accepted.add(String.format("\tProcessing : '%-40s : %d     : %-100s\n",in + "'", (symbolList.size()-1)/2, nfa.processandFinal(symbolList)));			
 
 		}
 	
 		System.out.println("Accepted:");
-		for(String out: accepted)
+		pw.println("Accepted:");
+		for(String out: accepted){
 			System.out.print(out);
+		    pw.print(out);
+		}
+		pw.close();
 	}
 	
 	public static void generate(NonDeterFiniteAutomata nfa, int num, int size) {
+		HashMap<String,String> hMap = new HashMap<String,String>();
 		List<Symbol<String>> Xarray = Generator.getSymbols(Xinputs,",");
 		List<Symbol<String>> Yarray = Generator.getSymbols(Yinputs,",");
 
 		if(size==0) size=3;
 		String input="";
+		int rej=0,acc=0;
 //		System.out.printf("Processing : %-21s : Length : %-100s\n","Input", "Final State(s)");
 
-		System.out.println("Rejected of length " + size + ":");
-		Symbol<String> prevX = Xarray.get((int)(Math.random()*Xarray.size()));
-		Symbol<String> prevY = null;
+//		System.out.println("Rejected of length " + size + ":");
 		
-		for(int i=0;i<num;) {
-			input = prevX.getValue().trim(); //prevsymbol.getValue().trim();
-			int length = (int) (Math.random()*(size-3)) + 3;
-
+		for(int i=0;(i<num || rej<=num/2);) {
+			Symbol<String> prevX = Xarray.get((int)(Math.random()*Xarray.size()));
+			Symbol<String> prevY = null;
 			Symbol<String> nextX = null;
+			input = prevX.getValue().trim();
+			int length = (int) (Math.random()*(size-3)) + 3;
 			while (length > 1) {
-			if(nextX == null)
-				nextX = new Symbol<String>(Xarray.get((int)(Math.random()*Xarray.size())).getValue().trim());
-			
+
+			nextX = new Symbol<String>(Xarray.get((int)(Math.random()*Xarray.size())).getValue().trim());
 			Symbol<String> nextY = null;
 			if(length>1) 
 				nextY = new Symbol<String>(Yarray.get((int)(Math.random()*Yarray.size())).getValue().trim());
 			
 //			System.out.println("i=" + i + " length=" + length + " prevY=" + prevY + " prevX="+prevX + "nextY=" + nextY + 
 //					" nextX=" + nextX );
-			// Not allow Z0S or S0Z
-			if((nextY!=null) && (prevY!=null) && ((prevY.getValue().equalsIgnoreCase("Z") && nextX.getValue().equals("O") && nextY.getValue().equalsIgnoreCase("S"))
-					|| ((prevY.getValue().equalsIgnoreCase("S") && nextX.getValue().equals("O") && nextY.getValue().equalsIgnoreCase("Z")))))
-				continue;
+			// Not allow ZOS or SOZ or =OS or =OZ or =O=
+			if((nextY!=null && prevY!=null && prevX.getValue().equals("O")) && 
+				(   ((prevY.getValue().equalsIgnoreCase("Z") && nextY.getValue().equalsIgnoreCase("S"))
+				   ||(prevY.getValue().equalsIgnoreCase("S") && nextY.getValue().equalsIgnoreCase("Z"))
+//				   ||(prevY.getValue().equalsIgnoreCase("=") && nextY.getValue().equalsIgnoreCase("S"))
+//				   ||(prevY.getValue().equalsIgnoreCase("=") && nextY.getValue().equalsIgnoreCase("Z"))
+//				   ||(prevY.getValue().equalsIgnoreCase("S") && nextY.getValue().equalsIgnoreCase("Z"))
+				   )))
+			{		//		System.out.println("i=" + i + " length=" + length + " prevY=" + prevY + " prevX="+prevX + "nextY=" + nextY + 
+				//" nextX=" + nextX );
 
-			// Not allow 0=0
-			if((nextX!=null && nextY!=null) && (prevX.getValue().equalsIgnoreCase("O") && nextY.getValue().equals("=") && nextX.getValue().equalsIgnoreCase("0")))
-				continue;
+				continue; }
+
+			// Not allow O=O 
+			if(nextY!=null && (nextY.getValue().equals("=") && 
+//					(prevX.getValue().equalsIgnoreCase("O") && nextX.getValue().equalsIgnoreCase("O"))
+					(prevX.getValue().equalsIgnoreCase("O") || nextX.getValue().equalsIgnoreCase("O"))
+				))
+			continue;
 			length--;
 			//
 //			if(next2symbol!=null && prevsymbol!=null)
@@ -135,19 +158,27 @@ public class NFAExample {
 
 			if(nextY!=null)		input = input + nextY.getValue().trim() + nextX.getValue().trim();
 			else	input = input + nextX.getValue().trim();
-				
-//			System.out.println("\t : " + input);
+
+//			if(input.contains("ZOS"))
+//				System.out.println("i=" + i + " length=" + length + " prevY=" + prevY + " prevX="+prevX + " nextY=" + nextY + 
+//				" nextX=" + nextX );
+
+//				System.out.println("\t : " + input);
 			prevX = nextX;
 			prevY = nextY;
 		}
+			
+		if(hMap.containsKey(input)) continue;
+		hMap.put(input, input);
 //		System.out.println("Input generated: " + input);
 		List<Symbol<String>> symbolList = Generator.getSymbols(input);		
-		if(!nfa.process(symbolList)) 
+		if(!nfa.process(symbolList)) rej++; else acc++;
 	//		{ System.out.printf("Processing : '%-20s : %d     : %-100s\n",input+"'", input.length(), nfa.processandFinal(symbolList)); i++;}
 //		else
 //			System.out.println("Processing " + input + ": " + nfa31.processandFinal(symbolList));			
 		{ System.out.printf("%-20s\n",input); i++;}
 		//else
 		}
+		System.out.println("rej="+rej + " acc="+acc);
 	}
 }
